@@ -35,7 +35,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
-        <a href="{{ url('/home') }}"><b>SIS </b>Acceso</a>
+        <a href="{{ url('/home') }}"><b>SIS </b>Carpinteria</a>
     </div>
 
     <!-- /.login-logo -->
@@ -80,7 +80,7 @@
                 <!-- /.col -->
             </div>
         </form>
-
+       <a href="{{ url('/register') }}" class="text-center">Registrarme</a>
         
     </div>
     <!-- /.login-box-body -->

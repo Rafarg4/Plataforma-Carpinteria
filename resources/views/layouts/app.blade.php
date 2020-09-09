@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Acceso al Sistema</title>
+    <title>SIS Carpinteria</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 
     <!-- Bootstrap 3.3.7 -->
@@ -34,8 +34,8 @@
         <header class="main-header">
 
             <!-- Logo -->
-            <a href="#" class="logo">
-                <b>SIS Acceso</b>
+            <a href="{{ url('/home') }}" class="logo">
+                <b>SIS Carpinteria</b>
             </a>
 
             <!-- Header Navbar -->
@@ -50,7 +50,7 @@
                         <!-- User Account Menu -->
                         <li class="dropdown user user-menu">
                             <!-- Menu Toggle Button -->
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown">
                                 <!-- The user image in the navbar-->
                                 <img src="/logo.png"
                                      class="user-image" alt="User Image"/>
