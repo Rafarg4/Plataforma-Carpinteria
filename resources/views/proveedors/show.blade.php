@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Proveedor
+            PROVEEDOR
         </h1>
     </section>
     <div class="content">
@@ -11,7 +11,7 @@
             <div class="box-body">
                 <div class="row" style="padding-left: 20px">
                     @include('proveedors.show_fields')
-                    <a href="{{ route('proveedors.index') }}" class="btn btn-default">Back</a>
+                    <a href="{{ route('proveedors.index') }}" class="btn btn-default">ATRAS</a>
                 </div>
             </div>
         </div>

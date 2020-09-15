@@ -1,14 +1,14 @@
 <div class="table-responsive">
-    <table class="table" id="proveedors-table">
+    <table class="table" id="data-table">
         <thead>
             <tr>
-                <th>Nombre Proveedor</th>
-        <th>Ruc Proveedor</th>
-        <th>Direccion Proveedor</th>
-        <th>Telefono Proveedor</th>
-        <th>Email Proveedor</th>
-        <th>Descripcion Proveedor</th>
-                <th colspan="3">Action</th>
+                <th>NOMBRE</th>
+        <th>RUC</th>
+        <th>DIRECCION</th>
+        <th>TELEFONO</th>
+        <th>EMAIL</th>
+        <th>DESCRIPCION</th>
+                <th colspan="3">ACCION</th>
             </tr>
         </thead>
         <tbody>
