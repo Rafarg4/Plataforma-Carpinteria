@@ -8,7 +8,7 @@
         <th>TELEFONO</th>
         <th>EMAIL</th>
         <th>DESCRIPCION</th>
-                <th colspan="3">ACCION</th>
+                <th>ACCION</th>
             </tr>
         </thead>
         <tbody>
