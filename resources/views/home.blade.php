@@ -8,6 +8,7 @@
 	  <p>Si visualiza esta pantalla de bienvenida esta habilitado para programar.</p>
       <p>commit Ale</p>
 	  <p>commit Gio</p>
+      <p>commit Ariel</p>
 	  <a class="btn btn-primary btn-lg" href="#" role="button">Iniciar</a>
 </div>
 
