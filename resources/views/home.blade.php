@@ -3,12 +3,59 @@
 @section('content')
 <div class="container">
     <div class="row">
-<div class="jumbotron">
-  <h1 class="display-4">Hello, {{ Auth::user()->name }}!</h1>
-  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-  <hr class="my-4">
-  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-  <a class="btn btn-primary btn-lg" href="#" role="button">Iniciar</a>
+  <section class="content">
+      <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+          
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>Deposito</h3>
+
+                <p>Deposito</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-clone"></i>
+              </div>
+              <a href="" class="small-box-footer">Mas informacion <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                 <h3>Stock</h3>
+                <p>Stock</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-book"></i>
+              </div>
+              <a href="{{ route('stocks.index') }}" class="small-box-footer">Mas informacion <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+             <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3>Usuarios</h3>
+
+                <p>Usuarios</p>
+              </div>
+              <div class="icon">
+               <i class="fa fa-user"></i>
+              </div>
+              <a href="{{ route('users.index') }}" class="small-box-footer">Mas informacion <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          </div>
+        
+</div>
+</div>
+</section>
 </div>
 
     </div>
