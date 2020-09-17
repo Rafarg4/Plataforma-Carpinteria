@@ -7,13 +7,13 @@
 <!-- Producto Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('producto', 'Producto:') !!}
-    {!! Form::text('producto', null, ['class' => 'form-control']) !!}
+     {!! Form::select('producto',array('Sin eleccion' => 'Sin eleccion','tornillos' => 'tornillos', 'madera' => 'madera','clavos' => 'clavos'),null, ['class' => 'form-control' ])!!}
 </div>
 
 <!-- Deposito Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('deposito', 'Deposito:') !!}
-    {!! Form::text('deposito', null, ['class' => 'form-control']) !!}
+    {!! Form::select('deposito',array('Sin eleccion' => 'Sin eleccion','compras' => 'compras', 'ventas' => 'ventas','produccion' => 'produccion'),null, ['class' => 'form-control' ])!!}
 </div>
 
 <!-- Submit Field -->

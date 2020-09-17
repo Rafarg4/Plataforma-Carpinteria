@@ -58,7 +58,7 @@ class StockController extends AppBaseController
 
         $stock = $this->stockRepository->create($input);
 
-        Flash::success('Stock saved successfully.');
+        Flash::success('Stock se guardo exitosamente.');
 
         return redirect(route('stocks.index'));
     }
@@ -75,7 +75,7 @@ class StockController extends AppBaseController
         $stock = $this->stockRepository->find($id);
 
         if (empty($stock)) {
-            Flash::error('Stock not found');
+            Flash::error('Stock no encontrado');
 
             return redirect(route('stocks.index'));
         }
@@ -95,7 +95,7 @@ class StockController extends AppBaseController
         $stock = $this->stockRepository->find($id);
 
         if (empty($stock)) {
-            Flash::error('Stock not found');
+            Flash::error('Stock no encontrado');
 
             return redirect(route('stocks.index'));
         }
@@ -116,14 +116,14 @@ class StockController extends AppBaseController
         $stock = $this->stockRepository->find($id);
 
         if (empty($stock)) {
-            Flash::error('Stock not found');
+            Flash::error('Stock no encontrado');
 
             return redirect(route('stocks.index'));
         }
 
         $stock = $this->stockRepository->update($request->all(), $id);
 
-        Flash::success('Stock updated successfully.');
+        Flash::success('Stock actualizo exitosamente.');
 
         return redirect(route('stocks.index'));
     }
@@ -142,14 +142,14 @@ class StockController extends AppBaseController
         $stock = $this->stockRepository->find($id);
 
         if (empty($stock)) {
-            Flash::error('Stock not found');
+            Flash::error('Stock no encontrado');
 
             return redirect(route('stocks.index'));
         }
 
         $this->stockRepository->delete($id);
 
-        Flash::success('Stock deleted successfully.');
+        Flash::success('Stock eliminado exitosamente.');
 
         return redirect(route('stocks.index'));
     }
