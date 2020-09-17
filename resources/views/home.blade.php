@@ -10,6 +10,7 @@
 	  <p>commit Gio</p>
       <p>commit Ariel</p>
       <p>commit Uli</p>
+      <p>commit Natu</p>
 	  <a class="btn btn-primary btn-lg" href="#" role="button">Iniciar</a>
 </div>
 
