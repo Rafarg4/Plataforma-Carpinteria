@@ -6,3 +6,4 @@
     <a href="{{ route('stocks.index') }}"><i class="fa fa-book"></i></i><span>Stocks</span></a>
 </li>
 
+

@@ -1,11 +1,11 @@
 <div class="table-responsive">
-    <table class="table" id="stocks-table">
+    <table class="table" id="data-table">
         <thead>
             <tr>
                 <th>Cantidad</th>
         <th>Producto</th>
         <th>Deposito</th>
-                <th colspan="3">Action</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
