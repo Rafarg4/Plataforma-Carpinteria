@@ -3,15 +3,30 @@
 @section('content')
 <div class="container">
     <div class="row">
-     <div class="jumbotron">
-	  <h1 class="display-4">Hola, {{ Auth::user()->name}}! usted pertenece al grupo de Red Team</h1>
-	  <p>Si visualiza esta pantalla de bienvenida esta habilitado para programar.</p>
-      <p>commit Ale</p>
-	  <p>commit Gio</p>
-      <p>commit Ariel</p>
-      <p>commit Uli</p>
-      <p>commit Natu</p>
-	  <a class="btn btn-primary btn-lg" href="#" role="button">Iniciar</a>
+  <section class="content">
+      <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+          
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>Ventas</h3>
+
+                <p>Ventas</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-clone"></i>
+              </div>
+              <a href="{{ route('ventas.index') }}" class="small-box-footer">Mas informacion <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+        </div>
+</div>
+</div>
+</section>
 </div>
 
     </div>
