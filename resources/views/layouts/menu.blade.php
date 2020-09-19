@@ -10,6 +10,6 @@
     <a href="{{ route('proveedors.index') }}"><i class="fa fa-address-card"></i><span>PROVEEDORES</span></a>
 </li>
 <li class="{{ Request::is('productos*') ? 'active' : '' }}">
-    <a href="{{ route('productos.index') }}"><i class="fa fa-archive"></i><span>Productos</span></a>
+    <a href="{{ route('productos.index') }}"><i class="fa fa-archive"></i><span>PRODUCTOS</span></a>
 </li>
 

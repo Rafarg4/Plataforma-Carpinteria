@@ -58,7 +58,7 @@ class ProveedorController extends AppBaseController
 
         $proveedor = $this->proveedorRepository->create($input);
 
-        Flash::success('Proveedor saved successfully.');
+        Flash::success('Proveedor guardado con éxito.');
 
         return redirect(route('proveedors.index'));
     }
@@ -75,7 +75,7 @@ class ProveedorController extends AppBaseController
         $proveedor = $this->proveedorRepository->find($id);
 
         if (empty($proveedor)) {
-            Flash::error('Proveedor not found');
+            Flash::error('Proveedor no encontrado');
 
             return redirect(route('proveedors.index'));
         }
@@ -95,7 +95,7 @@ class ProveedorController extends AppBaseController
         $proveedor = $this->proveedorRepository->find($id);
 
         if (empty($proveedor)) {
-            Flash::error('Proveedor not found');
+            Flash::error('Proveedor no encontrado');
 
             return redirect(route('proveedors.index'));
         }
@@ -116,14 +116,14 @@ class ProveedorController extends AppBaseController
         $proveedor = $this->proveedorRepository->find($id);
 
         if (empty($proveedor)) {
-            Flash::error('Proveedor not found');
+            Flash::error('Proveedor no encontrado');
 
             return redirect(route('proveedors.index'));
         }
 
         $proveedor = $this->proveedorRepository->update($request->all(), $id);
 
-        Flash::success('Proveedor updated successfully.');
+        Flash::success('Proveedor actualizado correctamente.');
 
         return redirect(route('proveedors.index'));
     }
@@ -142,14 +142,14 @@ class ProveedorController extends AppBaseController
         $proveedor = $this->proveedorRepository->find($id);
 
         if (empty($proveedor)) {
-            Flash::error('Proveedor not found');
+            Flash::error('Proveedor no encontrado');
 
             return redirect(route('proveedors.index'));
         }
 
         $this->proveedorRepository->delete($id);
 
-        Flash::success('Proveedor deleted successfully.');
+        Flash::success('Proveedor actualizado correctamente.');
 
         return redirect(route('proveedors.index'));
     }

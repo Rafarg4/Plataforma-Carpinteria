@@ -2,10 +2,10 @@
     <table class="table" id="data-table">
         <thead>
             <tr>
-                <th>Nombre Producto</th>
-        <th>Descripcion Producto</th>
-        <th>Categoria Id</th>
-                <th>Action</th>
+                <th>NOMBRE PRODUCTO</th>
+        <th>DESCRIPCIÓN PRODUCTO</th>
+        <th>CATEGORIA ID</th>
+                <th>ACCIÓN</th>
             </tr>
         </thead>
         <tbody>
