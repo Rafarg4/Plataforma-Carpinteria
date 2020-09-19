@@ -28,3 +28,5 @@ Route::resource('users', 'UserController');
 Route::resource('categorias', 'CategoriaController');
 
 Route::resource('proveedors', 'ProveedorController');
+
+Route::resource('productos', 'ProductoController');

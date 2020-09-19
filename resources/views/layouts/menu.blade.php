@@ -7,5 +7,9 @@
 </li>
 
 <li class="{{ Request::is('proveedors*') ? 'active' : '' }}">
-    <a href="{{ route('proveedors.index') }}"><i class="fa fa-edit"></i><span>PROVEEDORES</span></a>
+    <a href="{{ route('proveedors.index') }}"><i class="fa fa-address-card"></i><span>PROVEEDORES</span></a>
 </li>
+<li class="{{ Request::is('productos*') ? 'active' : '' }}">
+    <a href="{{ route('productos.index') }}"><i class="fa fa-archive"></i><span>Productos</span></a>
+</li>
+
