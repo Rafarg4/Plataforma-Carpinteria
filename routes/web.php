@@ -25,3 +25,5 @@ Route::get('/home', 'HomeController@index')->middleware('verified');
 Route::resource('users', 'UserController')->middleware('auth');
 
 Route::resource('stocks', 'StockController');
+
+Route::resource('depositos', 'DepositoController');
