@@ -2,10 +2,10 @@
     <table class="table table-bordered" id="data-table">
         <thead>
             <tr>
-                <th>Cantidad</th>
-        <th>Producto</th>
-        <th>Deposito</th>
-                <th>Action</th>
+                <th>CANTIDAD</th>
+        <th>PRODUCTOS</th>
+        <th>DEPOSITO</th>
+                <th>ACCION</th>
             </tr>
         </thead>
         <tbody>
@@ -19,7 +19,7 @@
                     <div class='btn-group'>
                         <a href="{{ route('stocks.show', [$stock->id]) }}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
                         <a href="{{ route('stocks.edit', [$stock->id]) }}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
-                        {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                        {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('ESTAS SEGURO?')"]) !!}
                     </div>
                     {!! Form::close() !!}
                 </td>
