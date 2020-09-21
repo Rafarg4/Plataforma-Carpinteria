@@ -12,3 +12,7 @@
 </li>
 
 
+<li class="{{ Request::is('transferencias*') ? 'active' : '' }}">
+    <a href="{{ route('transferencias.index') }}"><i class="fa fa-edit"></i><span>Transferencias</span></a>
+</li>
+

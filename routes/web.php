@@ -31,3 +31,5 @@ Route::resource('users', 'UserController')->middleware('auth');
 Route::resource('depositos', 'DepositoController');
 
 Route::resource('stocks', 'StockController');
+
+Route::resource('transferencias', 'TransferenciaController');
