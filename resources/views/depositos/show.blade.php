@@ -3,19 +3,15 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Stock
+            Deposito
         </h1>
     </section>
     <div class="content">
-        @include('adminlte-templates::common.errors')
         <div class="box box-primary">
             <div class="box-body">
-                <div class="row">
-                    {!! Form::open(['route' => 'stocks.store']) !!}
-
-                        @include('stocks.fields')
-
-                    {!! Form::close() !!}
+                <div class="row" style="padding-left: 20px">
+                    @include('depositos.show_fields')
+                    <a href="{{ route('depositos.index') }}" class="btn btn-default">Back</a>
                 </div>
             </div>
         </div>

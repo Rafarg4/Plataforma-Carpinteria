@@ -2,24 +2,22 @@
 
 namespace App\Repositories;
 
-use App\Models\Stock;
+use App\Models\Deposito;
 use App\Repositories\BaseRepository;
 
 /**
- * Class StockRepository
+ * Class DepositoRepository
  * @package App\Repositories
- * @version September 20, 2020, 8:51 pm -04
+ * @version September 20, 2020, 8:47 pm -04
 */
 
-class StockRepository extends BaseRepository
+class DepositoRepository extends BaseRepository
 {
     /**
      * @var array
      */
     protected $fieldSearchable = [
-        'deposito_id',
-        'producto',
-        'cantidad'
+        'descripcion'
     ];
 
     /**
@@ -37,6 +35,6 @@ class StockRepository extends BaseRepository
      **/
     public function model()
     {
-        return Stock::class;
+        return Deposito::class;
     }
 }

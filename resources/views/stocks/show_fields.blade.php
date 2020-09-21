@@ -1,30 +1,30 @@
-<!-- Cantidad Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('cantidad', 'CANTIDAD:') !!}
-    <p>{{ $stock->cantidad }}</p>
+<!-- Deposito Id Field -->
+<div class="form-group">
+    {!! Form::label('deposito_id', 'Deposito Id:') !!}
+    <p>{{ $stock->deposito_id }}</p>
 </div>
 
 <!-- Producto Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('producto', 'PRODUCTO:') !!}
+<div class="form-group">
+    {!! Form::label('producto', 'Producto:') !!}
     <p>{{ $stock->producto }}</p>
 </div>
 
-<!-- Deposito Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('deposito', 'DEPOSITO:') !!}
-    <p>{{ $stock->deposito }}</p>
+<!-- Cantidad Field -->
+<div class="form-group">
+    {!! Form::label('cantidad', 'Cantidad:') !!}
+    <p>{{ $stock->cantidad }}</p>
 </div>
 
 <!-- Created At Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('created_at', 'CREADO:') !!}
+<div class="form-group">
+    {!! Form::label('created_at', 'Created At:') !!}
     <p>{{ $stock->created_at }}</p>
 </div>
 
 <!-- Updated At Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('updated_at', 'ACTUALIZADO:') !!}
+<div class="form-group">
+    {!! Form::label('updated_at', 'Updated At:') !!}
     <p>{{ $stock->updated_at }}</p>
 </div>
 

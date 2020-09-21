@@ -12,33 +12,9 @@
         "inView": false
     },
     {
-        "name": "deposito_id",
-        "dbType": "integer:unsigned:foreign,depositos,id",
-        "htmlType": "select",
-        "validations": "required",
-        "searchable": true,
-        "fillable": true,
-        "primary": false,
-        "inForm": true,
-        "inIndex": true,
-        "inView": true
-    },
-    {
-        "name": "producto",
+        "name": "descripcion",
         "dbType": "text",
         "htmlType": "text",
-        "validations": "required",
-        "searchable": true,
-        "fillable": true,
-        "primary": false,
-        "inForm": true,
-        "inIndex": true,
-        "inView": true
-    },
-    {
-        "name": "cantidad",
-        "dbType": "integer",
-        "htmlType": "number",
         "validations": "required",
         "searchable": true,
         "fillable": true,
