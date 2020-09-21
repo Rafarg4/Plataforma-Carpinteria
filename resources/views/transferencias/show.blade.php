@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Transferencia
+            TRANSFERENCIA
         </h1>
     </section>
     <div class="content">
@@ -11,7 +11,7 @@
             <div class="box-body">
                 <div class="row" style="padding-left: 20px">
                     @include('transferencias.show_fields')
-                    <a href="{{ route('transferencias.index') }}" class="btn btn-default">Back</a>
+                    <a href="{{ route('transferencias.index') }}" class="btn btn-default">VOLVER</a>
                 </div>
             </div>
         </div>

@@ -28,8 +28,8 @@ Route::resource('users', 'UserController')->middleware('auth');
 
 
 
-Route::resource('depositos', 'DepositoController');
+Route::resource('depositos', 'DepositoController')->middleware('auth');
 
-Route::resource('stocks', 'StockController');
+Route::resource('stocks', 'StockController')->middleware('auth');
 
-Route::resource('transferencias', 'TransferenciaController');
+Route::resource('transferencias', 'TransferenciaController')->middleware('auth');

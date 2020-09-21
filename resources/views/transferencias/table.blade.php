@@ -2,11 +2,11 @@
     <table class="table" id="transferencias-table">
         <thead>
             <tr>
-                <th>Cantidad</th>
-        <th>Origne Id</th>
-        <th>Destino Id</th>
-        <th>Producto</th>
-                <th colspan="3">Action</th>
+                <th>CANTIDAD</th>
+        <th>DEPOSITO ORIGEN</th>
+        <th>DEPOSITO DESTINO</th>
+        <th>PRODUCTO</th>
+                <th>ACCION</th>
             </tr>
         </thead>
         <tbody>
@@ -21,7 +21,7 @@
                     <div class='btn-group'>
                         <a href="{{ route('transferencias.show', [$transferencia->id]) }}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
                         <a href="{{ route('transferencias.edit', [$transferencia->id]) }}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
-                        {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                        {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('ESTAS SEGURO')]) !!}
                     </div>
                     {!! Form::close() !!}
                 </td>
