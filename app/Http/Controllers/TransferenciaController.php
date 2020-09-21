@@ -58,7 +58,7 @@ class TransferenciaController extends AppBaseController
 
         $transferencia = $this->transferenciaRepository->create($input);
 
-        Flash::success('Transferencia saved successfully.');
+        Flash::success('Transferencia se guardo exitosamente.');
 
         return redirect(route('transferencias.index'));
     }
@@ -75,7 +75,7 @@ class TransferenciaController extends AppBaseController
         $transferencia = $this->transferenciaRepository->find($id);
 
         if (empty($transferencia)) {
-            Flash::error('Transferencia not found');
+            Flash::error('Transferencia no encontrada');
 
             return redirect(route('transferencias.index'));
         }
@@ -95,7 +95,7 @@ class TransferenciaController extends AppBaseController
         $transferencia = $this->transferenciaRepository->find($id);
 
         if (empty($transferencia)) {
-            Flash::error('Transferencia not found');
+            Flash::error('Transferencia no encontrado');
 
             return redirect(route('transferencias.index'));
         }
@@ -116,14 +116,14 @@ class TransferenciaController extends AppBaseController
         $transferencia = $this->transferenciaRepository->find($id);
 
         if (empty($transferencia)) {
-            Flash::error('Transferencia not found');
+            Flash::error('Transferencia no encontrado');
 
             return redirect(route('transferencias.index'));
         }
 
         $transferencia = $this->transferenciaRepository->update($request->all(), $id);
 
-        Flash::success('Transferencia updated successfully.');
+        Flash::success('Transferencia se actualizo exitosamente.');
 
         return redirect(route('transferencias.index'));
     }
@@ -142,14 +142,14 @@ class TransferenciaController extends AppBaseController
         $transferencia = $this->transferenciaRepository->find($id);
 
         if (empty($transferencia)) {
-            Flash::error('Transferencia not found');
+            Flash::error('Transferencia no encontrado');
 
             return redirect(route('transferencias.index'));
         }
 
         $this->transferenciaRepository->delete($id);
 
-        Flash::success('Transferencia deleted successfully.');
+        Flash::success('Transferencia se elimino exitosamente.');
 
         return redirect(route('transferencias.index'));
     }
