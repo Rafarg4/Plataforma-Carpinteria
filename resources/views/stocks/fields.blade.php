@@ -1,7 +1,7 @@
 <!-- Deposito Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('deposito_id', 'Deposito Id:') !!}
-    {!! Form::select('deposito_id', ], null, ['class' => 'form-control']) !!}
+    {!! Form::select('deposito_id', $depositos, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Producto Field -->

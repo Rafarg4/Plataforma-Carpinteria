@@ -11,11 +11,4 @@
     <a href="{{ route('depositos.index') }}"><i class="fa fa-clone"></i><span>DEPOSITO</span></a>
 </li>
 
-<li class="{{ Request::is('depositos*') ? 'active' : '' }}">
-    <a href="{{ route('depositos.index') }}"><i class="fa fa-edit"></i><span>Depositos</span></a>
-</li>
-
-<li class="{{ Request::is('stocks*') ? 'active' : '' }}">
-    <a href="{{ route('stocks.index') }}"><i class="fa fa-edit"></i><span>Stocks</span></a>
-</li>
 

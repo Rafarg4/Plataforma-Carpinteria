@@ -1,17 +1,17 @@
 <div class="table-responsive">
-    <table class="table" id="stocks-table">
+    <table class="table" id="data-table">
         <thead>
             <tr>
                 <th>Deposito Id</th>
         <th>Producto</th>
         <th>Cantidad</th>
-                <th colspan="3">Action</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
         @foreach($stocks as $stock)
             <tr>
-                <td>{{ $stock->deposito_id }}</td>
+                <td>{{ $stock->deposito->descripcion }}</td>
             <td>{{ $stock->producto }}</td>
             <td>{{ $stock->cantidad }}</td>
                 <td>

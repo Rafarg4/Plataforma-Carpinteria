@@ -46,5 +46,7 @@ class Deposito extends Model
         'descripcion' => 'required'
     ];
 
-    
+  public function stock (){
+        return $this-> hasMany('App\Models\Stock');
+    }   
 }

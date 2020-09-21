@@ -1,7 +1,7 @@
 <!-- Deposito Id Field -->
 <div class="form-group">
     {!! Form::label('deposito_id', 'Deposito Id:') !!}
-    <p>{{ $stock->deposito_id }}</p>
+    <p>{{ $stock->deposito->descripcion }}</p>
 </div>
 
 <!-- Producto Field -->

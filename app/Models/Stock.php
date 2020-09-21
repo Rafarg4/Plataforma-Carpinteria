@@ -53,6 +53,8 @@ class Stock extends Model
         'producto' => 'required',
         'cantidad' => 'required'
     ];
-
+public function deposito (){
+     return $this-> belongsTo('App\Models\Deposito');
+     }
     
 }
