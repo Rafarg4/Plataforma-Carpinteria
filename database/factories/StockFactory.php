@@ -9,8 +9,8 @@ $factory->define(Stock::class, function (Faker $faker) {
 
     return [
         'cantidad' => $faker->randomDigitNotNull,
-        'producto' => $faker->text,
-        'deposito' => $faker->text,
+        'producto_id' => $faker->integer,
+        'deposito_id' => $faker->integer,
         'created_at' => $faker->date('Y-m-d H:i:s'),
         'updated_at' => $faker->date('Y-m-d H:i:s')
     ];

@@ -17,10 +17,12 @@ class CreateStocksTable extends Migration
         Schema::create('stocks', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('cantidad');
-            $table->text('producto');
-            $table->text('deposito');
+            $table->integer('producto_id');
+            $table->integer('deposito_id')->unsigned();
             $table->timestamps();
             $table->softDeletes();
+            
+            $table->foreign('deposito_id')->references('id')->on('depositos');
         });
     }
 

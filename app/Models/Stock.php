@@ -27,8 +27,8 @@ class Stock extends Model
 
     public $fillable = [
         'cantidad',
-        'producto',
-        'deposito'
+        'producto_id',
+        'deposito_id'
     ];
 
     /**
@@ -39,8 +39,8 @@ class Stock extends Model
     protected $casts = [
         'id' => 'integer',
         'cantidad' => 'integer',
-        'producto' => 'string',
-        'deposito' => 'string'
+        'producto_id' => 'integer',
+        'deposito_id' => 'integer'
     ];
 
     /**
@@ -50,8 +50,8 @@ class Stock extends Model
      */
     public static $rules = [
         'cantidad' => 'required',
-        'producto' => 'required',
-        'deposito' => 'required'
+        'producto_id' => 'required',
+        'deposito_id' => 'required'
     ];
 
     
