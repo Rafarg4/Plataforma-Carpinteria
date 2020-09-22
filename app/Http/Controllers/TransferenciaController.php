@@ -9,6 +9,7 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
+use App\Models\Deposito;
 
 class TransferenciaController extends AppBaseController
 {
@@ -42,7 +43,9 @@ class TransferenciaController extends AppBaseController
      */
     public function create()
     {
-        return view('transferencias.create');
+       $depositos = Deposito::pluck('descripcion','id');
+       return view('transferencias.create',compact(
+          'depositos'));
     }
 
     /**

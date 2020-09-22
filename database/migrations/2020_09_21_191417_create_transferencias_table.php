@@ -22,8 +22,8 @@ class CreateTransferenciasTable extends Migration
             $table->text('producto');
             $table->timestamps();
             $table->softDeletes();
-            $table->foreign('origne_id')->references('id')->on('despositos');
-            $table->foreign('destino_id')->references('id')->on('despositos');
+            $table->foreign('origne_id')->references('id')->on('depositos');
+            $table->foreign('destino_id')->references('id')->on('depositos');
         });
     }
 

@@ -58,5 +58,11 @@ class Transferencia extends Model
         'producto' => 'required'
     ];
 
+    public function deposito1(){
+        return $this-> belongsTo('App\Models\Deposito', 'origne_id');
+    }
+    public function deposito(){
+        return $this-> belongsTo('App\Models\Deposito', 'destino_id');
+    }
     
 }
