@@ -2,17 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\venta;
+
+use App\User;
 use Illuminate\Http\Request;
 
 class VentaController extends Controller
 {
-   
+
     public function index()
     {
-        return view('venta.index');
+        // return view('venta.index');
         
+        $user_id = auth()->user()->id;
+        $user = User::find($user_id);
+        return view('venta.index')->with('venta', $user->ventas);
     }
+   
 
 
     public function create()
@@ -50,3 +55,4 @@ class VentaController extends Controller
         //
     }
 }
+

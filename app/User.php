@@ -41,4 +41,9 @@ class User extends Authenticatable
         'email' => 'required',
         'password' => 'required|min:5'
          ];
+
+         public function ventas(){
+            return $this->hasMany('App\Venta');
+        }
+
 }
