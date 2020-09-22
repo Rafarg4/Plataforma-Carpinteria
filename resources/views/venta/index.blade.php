@@ -1,1 +1,37 @@
-<h3>soy index del redteam</h3>
+<!DOCTYPE html>
+<html lang="es_DO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ventas">
+    <meta name="description" content="...">
+    <meta name="keywords" content="...">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <title>Pagina de Ventas</title>
+</head>
+ <body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <h2>Formulario Ventas </h2>
+                <div class="form-group row">
+                    <p>
+                        Venta Fecha: <input type="date" name="fechacita" min="2015-02-20" max="2030-12-31" step="7">
+                    </p>
+                    </form>
+                    <form action="formget.php" method="get">
+                            Numero de venta: <input type="text" name="numero de venta"><br>
+                    </form>
+                    <form action="formget.php" method="get">
+                            Tipo de Venta: <input type="text" name="nombre"><br>
+                    </form>
+                    <form action="formget.php" method="get">
+                            IVA <input type="text" name="nombre"><br>
+                    </form>
+                    <form action="formget.php" method="get">
+                            Venta Total: <input type="text" name="nombre"><br>
+                    </form>
+                    <input type="submit" value="Enviar">
+                </div>
+    </div>
+</body>
+</html>

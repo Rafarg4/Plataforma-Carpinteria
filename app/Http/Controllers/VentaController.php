@@ -49,4 +49,5 @@ class VentaController extends Controller
     {
         //
     }
+
 }
