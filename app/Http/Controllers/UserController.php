@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Flash;
 use Response;
+use App\User;
 
 class UserController extends AppBaseController
 {
@@ -34,8 +35,19 @@ class UserController extends AppBaseController
 
         return view('users.index')
             ->with('users', $users);
+
+
+
+
+
     }
 
+
+    public function usersDetail(){
+
+        $users = user::all();
+      return view('users.usersDetail', ['users' => $users]);
+    }
     /**
      * Show the form for creating a new User.
      *
@@ -160,4 +172,6 @@ class UserController extends AppBaseController
 
         return redirect(route('users.index'));
     }
+
+
 }

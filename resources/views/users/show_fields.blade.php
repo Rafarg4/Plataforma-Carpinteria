@@ -10,6 +10,9 @@
     <p>{{ $user->email }}</p>
 </div>
 
+
+
+
 <!-- Created At Field -->
 <div class="form-group">
     {!! Form::label('created_at', 'CREADO:') !!}
