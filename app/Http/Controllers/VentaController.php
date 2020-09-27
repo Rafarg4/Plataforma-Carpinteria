@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Venta;
+use App\venta;
 use Illuminate\Http\Request;
 class VentaController extends Controller
 {
@@ -14,8 +14,7 @@ class VentaController extends Controller
 
     public function ventasDetail(){
         $ventas =  Venta::all();
-      return view('venta.ventasDetail', ['ventas' => $ventas]);
-    return $this->belongsTo('App\User','user_id');
+        return view('venta.ventasDetail', ['ventas' => $ventas]);
     }
 
     public function show()

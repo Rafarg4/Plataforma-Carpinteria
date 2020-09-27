@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Flash;
 use Response;
-use App\User;
+use app\user;
 
 class UserController extends AppBaseController
 {
