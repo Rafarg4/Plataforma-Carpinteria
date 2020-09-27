@@ -1,5 +1,5 @@
 <div class="table-responsive">
-    <table class="table" id="transferencias-table">
+    <table class="table" id="data-table">
         <thead>
             <tr>
                 <th>CANTIDAD</th>
