@@ -1,77 +1,57 @@
 @extends('layouts.app')
+
 @section('content')
 
-         {{-- <h6>soy index del redteam</h6> --}}
+<section class="content-header">
+        <h1 class="pull-left">Ventas</h1>
+        <h1 class="pull-right">
+           <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{{ route('ventas.create') }}">Nueva Venta</a>
+        </h1>
+</section>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-5">
-            <h3>Formulario Ventas </h3>
-            <form action="formget.php" method="get" >
-
-                <div class="form-group">
-                    <div class="col-4">
-                        <label class="control-label col-2" for="date">Fecha:</label>
-                        <input type="date" class="form-control" id="date" placeholder="fecha de venta">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-4">
-                        <label class="control-label col-2" for="number">Factura Nro:</label>
-                        <input type="number" class="form-control" id="number" placeholder="Nro de factura">
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                      <label class="control-label col-2" for="user">Vendedor:</label>
-                      <input class="form-control mr-sm-2" type="search" placeholder="Usuario" aria-label="Vendedor">
-                </div>
-
-                 <div class="form-group">
-                    <label class="control-label col-2" for="cliente">Cliente:</label>
-                    <input class="form-control mr-sm-2" type="search" placeholder="CI/RUC" aria-label="CI/RUC">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Usuario" aria-label="Cliente">
-                </div>
-
-                <div class="form-group">
-                    <label class="control-label col-2" for="Articulos">Articulos:</label>
-                    <input class="form-control mr-sm-2" type="search" placeholder="articulo" aria-label="articulo">
-                    <input class="form-control mr-sm-2" type="search" placeholder="articulo" aria-label="articulo">
-                    <input class="form-control mr-sm-2" type="search" placeholder="articulo" aria-label="articulo">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="glyphicon glyphicon-plus"></i> Agregar</button>
-                </div>
-              
-                  <div class="form-group">
-                        <label class="control-label col-2" for="formas">Formas de pago:</label>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="formas" id="efectivo" value="efectivo" checked>
-                            <label class="form-check-label" for="efectivo">
-                            Efectivo
-                            </label>
-                            <input class="form-check-input" type="radio" name="formas" id="cheque" value="cheque">
-                            <label class="form-check-label" for="cheque">
-                            Cheque
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="control-label col-2" for="iva">IVA:</label>
-                        <div class="form-check">
-                        <input class="form-check-input" type="radio" name="iva" id="5" value="5%" checked>
-                        <label class="form-check-label" for="5%">
-                            5%
-                        </label>
-                        <input class="form-check-input" type="radio" name="iva" id="10" value="10%">
-                        <label class="form-check-label" for="cheque">
-                            10% 
-                        </label>
-                    </div>         
-                </div>
-
-                    <button class="btn btn-primary" type="submit"> <i class="glyphicon glyphicon-saved"></i>Guardar</button>
-            
-            </form>
+<div class="content">
+<div class="clearfix"></div>
+    <div class="box box-primary">
+        <div class="box-body">
+            <div class="table-responsive">
+            <table class="table" id="data-table">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Cliente</th>
+                        <th scope="col">Usuario</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Numero de factura</th>
+                        <th scope="col">Tipo de venta</th>
+                        <th scope="col">Total venta</th>
+                        <th>ACCION</th>       
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($ventas as $venta)
+                        <tr>
+                            <th scope="row">{{$venta->id}}</th>
+                            <th>{{$venta->cliente->clientes_nombre }}</th>
+                            <th>{{$venta->user->name}}</th>
+                            <th>{{$venta->vent_fecha }}</th>
+                            <th>{{$venta->vent_numero }}</th>
+                            <th>{{$venta->vent_tipo }}</th>
+                            <th>{{$venta->vent_totalFactura }}</th>
+                            <td>
+                                {!! Form::open(['route' => ['ventas.destroy', $venta->id], 'method' => 'delete']) !!}
+                                <div class='btn-group'>
+                                    <a href="{{ route('ventas.show', [$venta->id]) }}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
+                                    <a href="{{ route('ventas.edit', [$venta->id]) }}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
+                                    {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('ESTA SEGURO?')"]) !!}
+                                </div>
+                                {!! Form::close() !!}
+                            </td>   
+                        </tr>
+                    @endforeach
+                    </tbody>
+            </table>
+            </div>
         </div>
+    </div>
+</div>
 @endsection

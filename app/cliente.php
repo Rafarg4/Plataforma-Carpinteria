@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class cliente extends Model
 {
     
-         protected $table ='cliente';
+         protected $table ='clientes';
          public $primaryKey = 'id';
       
         public function ventas(){

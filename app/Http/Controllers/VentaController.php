@@ -8,13 +8,10 @@ class VentaController extends Controller
 
     public  function index()
     {
-   
-      return view('venta.index');
-    }
-
-    public function ventasDetail(){
         $ventas =  Venta::all();
-        return view('venta.ventasDetail', ['ventas' => $ventas]);
+        
+
+      return view('venta.index', ['ventas' => $ventas] );
     }
 
     public function show()
@@ -23,7 +20,8 @@ class VentaController extends Controller
     }
      public function create()
     {
-        //
+        
+        return view('venta.create');
     }
 
    
