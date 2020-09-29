@@ -1,41 +1,77 @@
-<<<<<<< HEAD
-<h3>soy index del redteam</h3>
-=======
-<!DOCTYPE html>
-<html lang="es_DO">
-<head>
-    <meta charset="UTF-8">
-    <meta name="author" content="Ventas">
-    <meta name="description" content="...">
-    <meta name="keywords" content="...">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <title>Pagina de Ventas</title>
-</head>
- <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-5">
-                <h2>Formulario Ventas </h2>
-                <div class="form-group row">
-                    <p>
-                        Venta Fecha: <input type="date" name="fechacita" min="2015-02-20" max="2030-12-31" step="7">
-                    </p>
-                    </form>
-                    <form action="formget.php" method="get">
-                            Numero de venta: <input type="text" name="numero de venta"><br>
-                    </form>
-                    <form action="formget.php" method="get">
-                            Tipo de Venta: <input type="text" name="nombre"><br>
-                    </form>
-                    <form action="formget.php" method="get">
-                            IVA <input type="text" name="nombre"><br>
-                    </form>
-                    <form action="formget.php" method="get">
-                            Venta Total: <input type="text" name="nombre"><br>
-                    </form>
-                    <input type="submit" value="Enviar">
+@extends('layouts.app')
+@section('content')
+
+         {{-- <h6>soy index del redteam</h6> --}}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+            <h3>Formulario Ventas </h3>
+            <form action="formget.php" method="get" >
+
+                <div class="form-group">
+                    <div class="col-4">
+                        <label class="control-label col-2" for="date">Fecha:</label>
+                        <input type="date" class="form-control" id="date" placeholder="fecha de venta">
+                    </div>
                 </div>
-    </div>
-</body>
-</html>
->>>>>>> 9314a1e566e8e31adb1db4f57133256318a9dd4b
+
+                <div class="form-group">
+                    <div class="col-4">
+                        <label class="control-label col-2" for="number">Factura Nro:</label>
+                        <input type="number" class="form-control" id="number" placeholder="Nro de factura">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                      <label class="control-label col-2" for="user">Vendedor:</label>
+                      <input class="form-control mr-sm-2" type="search" placeholder="Usuario" aria-label="Vendedor">
+                </div>
+
+                 <div class="form-group">
+                    <label class="control-label col-2" for="cliente">Cliente:</label>
+                    <input class="form-control mr-sm-2" type="search" placeholder="CI/RUC" aria-label="CI/RUC">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Usuario" aria-label="Cliente">
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-2" for="Articulos">Articulos:</label>
+                    <input class="form-control mr-sm-2" type="search" placeholder="articulo" aria-label="articulo">
+                    <input class="form-control mr-sm-2" type="search" placeholder="articulo" aria-label="articulo">
+                    <input class="form-control mr-sm-2" type="search" placeholder="articulo" aria-label="articulo">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="glyphicon glyphicon-plus"></i> Agregar</button>
+                </div>
+              
+                  <div class="form-group">
+                        <label class="control-label col-2" for="formas">Formas de pago:</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="formas" id="efectivo" value="efectivo" checked>
+                            <label class="form-check-label" for="efectivo">
+                            Efectivo
+                            </label>
+                            <input class="form-check-input" type="radio" name="formas" id="cheque" value="cheque">
+                            <label class="form-check-label" for="cheque">
+                            Cheque
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-2" for="iva">IVA:</label>
+                        <div class="form-check">
+                        <input class="form-check-input" type="radio" name="iva" id="5" value="5%" checked>
+                        <label class="form-check-label" for="5%">
+                            5%
+                        </label>
+                        <input class="form-check-input" type="radio" name="iva" id="10" value="10%">
+                        <label class="form-check-label" for="cheque">
+                            10% 
+                        </label>
+                    </div>         
+                </div>
+
+                    <button class="btn btn-primary" type="submit"> <i class="glyphicon glyphicon-saved"></i>Guardar</button>
+            
+            </form>
+        </div>
+@endsection
