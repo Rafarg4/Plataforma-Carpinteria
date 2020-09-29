@@ -13,10 +13,12 @@ class CreateVentasTable extends Migration
      */
     public function up()
     {
+        
         Schema::create('ventas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('cliente_id')->constrained();
+             $table->foreignId('cliente_id')->constrained();
             $table->foreignId('user_id')->constrained();
+             $table->foreignId('forma_id')->constrained();
 
              $table->date('vent_fecha');
             $table->string('vent_numero');
@@ -24,6 +26,7 @@ class CreateVentasTable extends Migration
             $table->decimal('vent_iva', 5, 2);
             $table->string('vent_totalFactura');
             $table->timestamps();
+
         });
     }
 

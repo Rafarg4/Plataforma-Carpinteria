@@ -12,6 +12,6 @@ class cliente extends Model
          public $primaryKey = 'id';
       
         public function ventas(){
-           return $this->hasMany('App\venta');}
+           return $this->hasMany('App\venta');
        }
 }
