@@ -12,6 +12,6 @@ class forma_de_pago extends Model
          public $primaryKey = 'id';
       
          public function ventas(){
-            return $this->hasMany(venta::class);
+            return $this->hasMany('App\venta');
         }
 }

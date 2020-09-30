@@ -19,7 +19,7 @@
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Cliente</th>
-                        <th scope="col">Usuario</th>
+                        <th scope="col">Vendedor</th>
                         <th scope="col">Fecha</th>
                         <th scope="col">Numero de factura</th>
                         <th scope="col">Tipo de venta</th>

@@ -21,7 +21,7 @@ return $this->belongsTo('App\user');}
  public function cliente(){
  return $this->belongsTo('App\cliente');}
  public function forma_de_pago(){
- return $this->hasOne('App\forma_de_pago');}
+ return $this->hasMany('App\forma_de_pago');}
  public function venta_detalle(){
  return $this->hasMany('App\venta_detalle');}
 

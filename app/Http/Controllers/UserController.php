@@ -43,11 +43,6 @@ class UserController extends AppBaseController
     }
 
 
-    public function usersDetail(){
-
-        $users = user::all();
-      return view('users.usersDetail', ['users' => $users]);
-    }
     /**
      * Show the form for creating a new User.
      *

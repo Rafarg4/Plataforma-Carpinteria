@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 use App\venta;
+
 use Illuminate\Http\Request;
+ 
+
+
 class VentaController extends Controller
 {
 
@@ -27,7 +31,10 @@ class VentaController extends Controller
    
      public function store(Request $request)
     {
-        //
+        $ventas =  Venta::all();
+        
+
+
     }
 
  
