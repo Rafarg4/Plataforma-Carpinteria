@@ -1,26 +1,22 @@
+@extends('layouts.app')
 
-<div class="table-responsive">
-    <table class="table" id="data-table">
+@section('content')
+    <section class="content-header">
+        <h1>
+            VENTAS
+        </h1>
+    </section>
+    <div class="content">
+        <div class="box box-primary">
+            <div class="box-body">
+                <div class="row" style="padding-left: 20px">
 
-            <tr>
-                <th>Numero factura</th>
-                <th>tipo</th>
-                <th> usuario <th>
-            </tr>
-    
-     
-        
-            <tr>
-              
+                   
 
-@foreach ($ventas as $key)
-             <th> {{$key->vent_numero}}</th>
-               <th> {{$key->vent_tipo}}</th>
-        
-               <th> {{$key->user->name}}</th>
-            
-            </tr>
-    
-     @endforeach    </table>
-</div>
-
+             
+                    <a href="{{ route('ventas.index') }}" class="btn btn-default">VOLVER</a>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection

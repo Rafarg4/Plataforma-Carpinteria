@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\venta;
 use App\cliente;
+use App\articulo;
 use Illuminate\Http\Request;
  
 
@@ -25,8 +26,9 @@ class VentaController extends Controller
      public function create()
     {
         $clientes =  Cliente::all();
+        $articulos = Articulo::all();
         
-        return view('venta.create', ['clientes' => $clientes] );
+        return view('venta.create', ['clientes' => $clientes],['articulos' => $articulos] );
     }
 
    
