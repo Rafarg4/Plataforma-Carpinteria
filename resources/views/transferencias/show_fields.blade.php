@@ -7,13 +7,13 @@
 <!-- Origne Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('origne_id', 'DEPOSITO ORIGEN:') !!}
-    <p>{{ $transferencia->origne_id }}</p>
+    <p>{{ $transferencia->deposito1->descripcion }}</p>
 </div>
 
 <!-- Destino Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('destino_id', 'DEPOSITO DESTINO:') !!}
-    <p>{{ $transferencia->destino_id }}</p>
+    <p>{{ $transferencia->deposito->descripcion }}</p>
 </div>
 
 <!-- Producto Field -->
