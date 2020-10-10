@@ -1,0 +1,44 @@
+Identificación:	Disparador para tabla de transferencias
+Tabla:	Transferencias
+Autor:	Mario Segovia
+Configuración:	Rafael Escobar
+
+Descripción: 
+Disparador para actualizar los valores del campo cantidad de los registros del submódulo Stock. Mediante las llaves primarias de los depósitos de origen y destino realiza la resta y suma de las cantidades transferidas.
+Adicionalmente realiza una verificación si los registros de stock existen o no, en caso de que el registro de stock de origen no exista, el disparador lo crea automáticamente con valor de cantidad 0. En caso de que el stock de destino no exista, el disparador crea el registro con el valor de cantidad a transferir.
+En caso de que el stock de origen y de destino sean iguales y de no existir el registro en stock, se crea un registro en stock con el valor de la  cantidad ingresada, si el registro de stock existe, se agrega la cantidad especificada al registro existente.  
+
+Tipo de evento: 
+	BEFORE INSERT (ANTES DE INSERTAR)
+Código:
+
+BEGIN
+DECLARE origen int unsigned DEFAULT 0;
+DECLARE destino int unsigned DEFAULT 0;
+SELECT cantidad INTO @cant_stock_orig FROM stocks WHERE deposito_id=new.origne_id && producto= new.producto;
+IF EXISTS (select * from stocks where deposito_id=new.origne_id && producto= new.producto ) THEN set origen=1; ELSE  SET origen=0;
+END IF;
+IF EXISTS (select * from stocks where deposito_id=new.destino_id && producto= new.producto ) THEN SET destino = 1; ELSE SET destino = 0;
+END IF;
+
+IF new.origne_id= new.destino_id && origen = 0 then
+	INSERT INTO stocks (producto, deposito_id, cantidad) VALUES (new.producto,new.origne_id,new.cantidad);
+ELSEIF new.origne_id = new.destino_id && origen = 1 THEN
+	update stocks set cantidad = cantidad + new.cantidad where deposito_id=new.origne_id && producto= new.producto;
+ELSEIF origen = 0 && destino = 0 then
+	INSERT INTO stocks (producto, deposito_id, cantidad) VALUES (new.producto,new.origne_id,0);
+    INSERT INTO stocks (producto, deposito_id, cantidad) VALUES (new.producto,new.destino_id,new.cantidad);
+ELSEIF origen = 0 && destino = 1 then
+	INSERT INTO stocks (producto, deposito_id, cantidad) VALUES (new.producto,new.origne_id,0);
+    update stocks set cantidad = cantidad + new.cantidad where deposito_id=new.destino_id && producto= new.producto;
+
+ELSEIF origen = 1 && destino = 0 then
+	update stocks set cantidad = cantidad - new.cantidad where deposito_id=new.origne_id && producto= new.producto;
+    INSERT INTO stocks (producto, deposito_id, cantidad) VALUES (new.producto,new.destino_id,new.cantidad);
+ELSE 
+	update stocks set cantidad = cantidad - new.cantidad where deposito_id=new.origne_id && producto= new.producto;
+	update stocks set cantidad = cantidad + new.cantidad where deposito_id=new.destino_id && producto= new.producto;
+END IF;
+
+END
+
