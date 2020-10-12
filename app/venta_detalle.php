@@ -12,6 +12,8 @@ class venta_detalle extends Model
          public $primaryKey = 'id';
       
          public function ventas(){
-            return $this->belongsTo('app\ventas');
+            return $this->belongsTo('app\venta');
         }
+        public function articulo(){
+            return $this->belongsTo('App\articulo');}
 }

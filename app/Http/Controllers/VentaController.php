@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\venta;
 use App\cliente;
 use App\articulo;
+use App\venta_detalle;
 use Illuminate\Http\Request;
  
 
@@ -19,10 +20,15 @@ class VentaController extends Controller
       return view('venta.index', ['ventas' => $ventas] );
     }
 
-    public function show()
+    public function show($id)
     {
-      return view('venta.show');
+    
+      return view('venta.show', 
+      ['venta' => Venta::findOrFail($id)], 
+      ['detalle' => Venta_detalle::findOrFail($id)],
+    );
     }
+
      public function create()
     {
         $clientes =  Cliente::all();
@@ -54,16 +60,12 @@ class VentaController extends Controller
 
   
      public function destroy($id)
-    {
+        {
 
-        $ventas = Venta::find($id);
-        $ventas->delete();
+            $ventas = Venta::find($id);
+            $ventas->delete();
 
-        
-
-        return redirect(route('ventas.index'));
-    }
+            return redirect(route('ventas.index'));
+        }
     
-
-   
 }

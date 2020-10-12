@@ -13,5 +13,5 @@ class cliente extends Model
       
         public function ventas(){
            return $this->hasMany('App\venta');
-       }
+       } 
 }
