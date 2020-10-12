@@ -39,14 +39,32 @@
                             {!! Form::label('vent_totalFactura', 'TOTAL FACTURA:') !!}
                             <p>{{ $venta->vent_totalFactura }}</p>
                         </div>
-                      
-                        <div class="form-group">
-                            {!! Form::label('articulos_descripcion', 'Articulos:') !!}
-                            <p>{{ $detalle->articulo->articulos_descripcion }}</p>
-                        </div>
-                       
 
-             
+                        
+                        <div class="col-md-12">
+							<table id="detalles" class="table table-striped table-bordered table-hover table-condensed" style="margin-top: 10px">
+								<thead style="background-color: #A9D0F5">
+									<th>Cantidad</th>
+									<th>Artículo</th>
+									
+								</thead>								
+							    <tbody>
+                                @foreach($detalle as $det)
+                                    @if ($det->venta_id == $venta->id)
+                                    <tr>
+                                        <td>
+                                            <p>{{   $det->vdet_cantidad }}</p>  <!-- trae la cantidad del articulo-->
+                                        </td>
+                                        <td>
+                                             <p>{{ $det->articulo->articulos_descripcion }}</p> <!-- trae el nombre del articulo-->
+                                        </td>
+                                    </tr>
+                                    @endif
+                                @endforeach
+							    </tbody>
+						</table>
+                         
+              
                     <a href="{{ route('ventas.index') }}" class="btn btn-default">VOLVER</a>
                 </div>
             </div>

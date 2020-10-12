@@ -25,7 +25,7 @@ class VentaController extends Controller
     
       return view('venta.show', 
       ['venta' => Venta::findOrFail($id)], 
-      ['detalle' => Venta_detalle::findOrFail($id)],
+      ['detalle' => Venta_detalle::all() ],
     );
     }
 
