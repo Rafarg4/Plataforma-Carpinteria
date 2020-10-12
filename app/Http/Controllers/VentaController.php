@@ -64,6 +64,7 @@ class VentaController extends Controller
 
             $ventas = Venta::find($id);
             $ventas->delete();
+           
 
             return redirect(route('ventas.index'));
         }
