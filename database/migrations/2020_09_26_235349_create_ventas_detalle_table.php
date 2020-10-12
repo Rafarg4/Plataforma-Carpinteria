@@ -15,9 +15,9 @@ class CreateVentasDetalleTable extends Migration
     {
         Schema::create('ventas_detalle', function (Blueprint $table) {
             $table->id();
-             $table->foreignId('venta_id')->constrained();
+             $table->foreignId('venta_id')->constrained()->onDelete('cascade');
              $table->foreignId('articulo_id')->constrained();
-
+            
              $table->string('vdet_cantidad');
             $table->timestamps();
         });

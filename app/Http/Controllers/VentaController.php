@@ -55,20 +55,13 @@ class VentaController extends Controller
   
      public function destroy($id)
     {
+
+        $ventas = Venta::find($id);
+        $ventas->delete();
+
         
-        $venta = $this->ventaRepository->find($id);
-        
-        if (empty($venta)) {
-            Flash::error('Venta no encontrado');
 
-            return redirect(route('venta.index'));
-        }
-
-        $this->ventaRepository->delete($id);
-
-        Flash::success('Venta eliminado exitosamente.');
-
-        return redirect(route('venta.index'));
+        return redirect(route('ventas.index'));
     }
     
 

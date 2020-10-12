@@ -18,8 +18,10 @@ class CreateVentasTable extends Migration
             $table->id();
             $table->foreignId('cliente_id')->constrained();
             $table->foreignId('user_id')->constrained();
+            
 
-             $table->date('vent_fecha');
+
+            $table->date('vent_fecha');
             $table->string('vent_numero');
             $table->string('vent_tipo');
             $table->decimal('vent_iva', 5, 2);
