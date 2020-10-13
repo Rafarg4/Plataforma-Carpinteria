@@ -34,6 +34,8 @@ class VentaController extends Controller
         $clientes =  Cliente::all();
         $articulos = Articulo::all();
         
+
+        
         return view('venta.create', ['clientes' => $clientes],['articulos' => $articulos] );
     }
 
