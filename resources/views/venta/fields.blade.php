@@ -105,15 +105,15 @@
 		//Obtener los valores de los inputs
 		articulo_id = $("#articulo_descripcion").val();
 		articulo = $("#articulo_descripcion option:selected").text();
-		cantidad = $("#vdet_cantidad").val();
+		vdet_cantidad = $("#vdet_cantidad").val();
 		precio_articulo = $("#articulos_precio").val();
 
 		//Validar los campos
-		if(articulo_id != "" && cantidad > 0 && precio_articulo != ""){
+		if(articulo_id != "" && vdet_cantidad > 0 && precio_articulo != ""){
 			//subtotal array inicie en el indice cero
-			subtotal[cont] = (cantidad * precio_articulo);
+			subtotal[cont] = (vdet_cantidad * precio_articulo);
 			vent_totalFactura = vent_totalFactura + subtotal[cont];
-			var fila = '<tr class="selected" id="fila'+cont+'"><td><button type="button" class="btn btn-warning" onclick="eliminar('+cont+')">X</button></td><td><input type="hidden" name="articulo_id[]" value="'+articulo_id+'">'+articulo+'</td><td><input type="number" name="cantidad[]" value="'+cantidad+'"readonly></td><td><input type="number" name="precio_articulo[]" value="'+precio_articulo+'"readonly></td><td>'+subtotal[cont]+'</td></tr>';
+			var fila = '<tr class="selected" id="fila'+cont+'"><td><button type="button" class="btn btn-warning" onclick="eliminar('+cont+')">X</button></td><td><input type="hidden" name="articulo_id[]" value="'+articulo_id+'">'+articulo+'</td><td><input type="number" name="vdet_cantidad[]" value="'+vdet_cantidad+'"readonly></td><td><input type="number" name="precio_articulo[]" value="'+precio_articulo+'"readonly></td><td>'+subtotal[cont]+'</td></tr>';
 
 			cont++;
 			limpiar();

@@ -50,10 +50,34 @@ class VentaController extends Controller
         $ventas->vent_numero = request( 'vent_numero'); //envia
         $ventas->vent_tipo = request( 'vent_tipo'); //envia
         $ventas->vent_iva = 10; //envia
-        $ventas->vent_totalFactura = request( 'vent_totalFactura');
+        $ventas->vent_totalFactura = 25000;
 
         $ventas->save();
 
+            //Artículos array()
+    		//Tabla venta_detalle
+    		$articulo_id = $request->get('articulo_id'); //array()
+    		$vdet_cantidad = $request->get('vdet_cantidad');
+
+
+    		
+
+    		//Recorre los detalles de ventas
+    		$cont = 0;
+
+    		while($cont < count($articulo_id))
+    		{
+    			$detalle = new Venta_detalle;
+    			//$ingreso->id del ingreso que recien se guardo 
+    			$detalle->venta_id = $ventas->id;
+    			//id_articulo de la posición cero
+    			$detalle->articulo_id = $articulo_id[$cont]; //envia
+    			$detalle->vdet_cantidad = $vdet_cantidad[$cont]; //envia
+    			
+    			$detalle->save();
+
+    			$cont = $cont + 1;
+    		}
 
         return redirect(route('ventas.index'));
 
