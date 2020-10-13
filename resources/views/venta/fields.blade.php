@@ -1,33 +1,33 @@
 <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
-	<div class="form-group col-md-6">
+	<div class="col-md-4">
 		<div class="form-group">
-			<label for="nombre">Fecha</label>
-			<input type="date" name="fecha" class="form-control" placeholder="Fecha" value="{{ old('venta_fecha') }}">
+			<label for="vent_fecha">Fecha</label>
+			<input type="date" name="vent_fecha" class="form-control" value="{{ old('vent_fecha') }}">
 		</div>
         <div class="form-group">
-			<label for="vendedor">Vendedor</label>
-			<input type="text" name="vendedor" class="form-control" value="{{ Auth::user()->name }}" readonly>
+			<label for="user_id">Vendedor: {{Auth::user()->name}}</label>
+			<input type="text" name="user_id" class="form-control" value="{{ Auth::user()->id }}" readonly>
 		</div>			
 		<div class="form-group">
-			<select id="vent_tipo" class="form-control">
-				<option selected>Contado</option>
-				<option>Credito</option>
+			<select name="vent_tipo" id="vent_tipo" class="form-control">
+				<option value="contado" selected>Contado</option>
+				<option value="credito" >Credito</option>
 			</select>
 		</div>
 	</div>
-			
-	<div class="col-md-6">
+	
+	<div class="col-md-4">
         <div class="form-group">
-			<label for="cliente">Cliente</label>
-			<select name="cliente" class="form-control">
+			<label for="cliente_id">Cliente</label>
+			<select name="cliente_id" class="form-control">
 				@foreach($clientes as $cliente)
 					<option value="{{ $cliente->id}}">{{$cliente->clientes_nombre}}</option>
 				@endforeach
 			</select> 
 		</div>
         <div class="form-group">
-            <label for="num_factura">Número de Factura</label>
-            <input type="text" name="num_factura" class="form-control" placeholder="Número de Factura" value="001-001-{{ old('vent_numero') }} ">
+            <label for="vent_numero">Número de Factura</label>
+            <input type="text" name="vent_numero" class="form-control" placeholder="Número de Factura" value="{{ old('vent_numero') }} ">
         </div>
     </div>
 <!-- agregar articulos -->
@@ -44,22 +44,20 @@
 		</div>
 	</div>
 	<div class="col-md-2">
-		
 			<div class="form-group">
 				<label for="articulos_precio">Precio Articulo</label>
 				<input type="number" name="articulos_precio" id="articulos_precio" class="form-control" placeholder="Precio del Articulo" value="">
 			</div>
-	
 			<div class="form-group">
 				<label for="vdet_cantidad">Cantidad</label>
-				<input type="number" name="vdet_cantidad" id="vdet_cantidad" class="form-control"  placeholder="Cantidad del articulo">
+				<input type="number" name="vdet_cantidad" id="vdet_cantidad" class="form-control"  placeholder="Cantidad del articulo" value="{{ old('vdet_cantidad') }}">
 			</div>
-	</div>
-	<div class="col-md-2">
+
 		<div class="form-group">
 			<button type="button" id="bt_add" class="btn btn-primary">Agregar</button>
 		</div>
 	</div>
+<!-- Tabla de los articulos agregados -->
 	<div class="col-md-12">
 		<table id="detalles" class="table table-striped table-bordered table-hover table-condensed" style="margin-top: 10px">
 			<thead style="background-color: #A9D0F5">
@@ -74,12 +72,14 @@
 				<th></th>
 				<th></th>
 				<th></th>
-				<th><h4 id="total">0.00</h4></th>
+				<th><h4 id="vent_totalFactura">0.00</h4></th>
+				
 			</tfoot>
 			<tbody>
 									
 			</tbody>
 		</table>
+		
 	</div>
 	<div class="col-md-12" id="guardar">
 		<div class="form-group">
@@ -96,28 +96,28 @@
 		});
 	});
 	var cont = 0;
-	var total = 0;
+	var vent_totalFactura = 0;
 	var subtotal = [];
 	//Cuando cargue el documento
 	//Ocultar el botón Guardar
 	$("#guardar").hide();
 	function agregar(){
 		//Obtener los valores de los inputs
-		id_articulo = $("#articulo_descripcion").val();
+		articulo_id = $("#articulo_descripcion").val();
 		articulo = $("#articulo_descripcion option:selected").text();
 		cantidad = $("#vdet_cantidad").val();
 		precio_articulo = $("#articulos_precio").val();
 
 		//Validar los campos
-		if(id_articulo != "" && cantidad > 0 && precio_articulo != ""){
+		if(articulo_id != "" && cantidad > 0 && precio_articulo != ""){
 			//subtotal array inicie en el indice cero
 			subtotal[cont] = (cantidad * precio_articulo);
-			total = total + subtotal[cont];
-			var fila = '<tr class="selected" id="fila'+cont+'"><td><button type="button" class="btn btn-warning" onclick="eliminar('+cont+')">X</button></td><td><input type="hidden" name="id_articulo[]" value="'+id_articulo+'">'+articulo+'</td><td><input type="number" name="cantidad[]" value="'+cantidad+'"></td><td><input type="number" name="precio_articulo[]" value="'+precio_articulo+'"></td><td>'+subtotal[cont]+'</td></tr>';
+			vent_totalFactura = vent_totalFactura + subtotal[cont];
+			var fila = '<tr class="selected" id="fila'+cont+'"><td><button type="button" class="btn btn-warning" onclick="eliminar('+cont+')">X</button></td><td><input type="hidden" name="articulo_id[]" value="'+articulo_id+'">'+articulo+'</td><td><input type="number" name="cantidad[]" value="'+cantidad+'"readonly></td><td><input type="number" name="precio_articulo[]" value="'+precio_articulo+'"readonly></td><td>'+subtotal[cont]+'</td></tr>';
 
 			cont++;
 			limpiar();
-			$("#total").html("₲" + total);
+			$("#vent_totalFactura").html("₲" + vent_totalFactura);
 			evaluar();
 			$("#detalles").append(fila);
 		}else{
@@ -130,17 +130,19 @@
 	}
 	//Muestra botón guardar
 	function evaluar(){
-		if(total > 0){
+		if(vent_totalFactura > 0){
 			$("#guardar").show();
 		}else{
 			$("#guardar").hide();
 		}
 	}
 	function eliminar(index){
-		total = total-subtotal[index];
-		$("#total").html("₲" + total);
+		vent_totalFactura = vent_totalFactura-subtotal[index];
+		$("#vent_totalFactura").html("₲" + vent_totalFactura);
 		$("#fila" + index).remove();
 		evaluar();
 	}
+
+	
 </script>
 @endpush

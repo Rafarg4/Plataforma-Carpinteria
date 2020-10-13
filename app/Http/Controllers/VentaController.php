@@ -42,7 +42,21 @@ class VentaController extends Controller
    
      public function store(Request $request)
     {
-        
+        $ventas = new Venta();
+
+        $ventas->cliente_id = request( 'cliente_id'); //envia
+        $ventas->user_id = request( 'user_id'); //envia
+        $ventas->vent_fecha = request( 'vent_fecha'); //envia
+        $ventas->vent_numero = request( 'vent_numero'); //envia
+        $ventas->vent_tipo = request( 'vent_tipo'); //envia
+        $ventas->vent_iva = 10; //envia
+        $ventas->vent_totalFactura = request( 'vent_totalFactura');
+
+        $ventas->save();
+
+
+        return redirect(route('ventas.index'));
+
 
     }
 
