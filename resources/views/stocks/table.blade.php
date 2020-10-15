@@ -15,8 +15,7 @@
             <td>{{ $stock->producto }}</td>
             <td>{{ $stock->cantidad }}</td>
                 <td>
-                    {!! Form::open(['rout
-                    e' => ['stocks.destroy', $stock->id], 'method' => 'delete']) !!}
+                    {!! Form::open(['route' => ['stocks.destroy', $stock->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
                         <a href="{{ route('stocks.show', [$stock->id]) }}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
                         <a href="{{ route('stocks.edit', [$stock->id]) }}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
