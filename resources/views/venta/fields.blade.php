@@ -76,7 +76,7 @@
 				<th>
 				<input type="number" name="vent_totalFactura" 
 				class="form-control" id="vent_totalFactura"
-				value="{{ old('vent_totalFactura') }} ">
+				value="{{ old('vent_totalFactura') }} " placeholder="{{ old('vent_totalFactura') }} " readonly>
 				</th>
 			</tfoot>
 			<tbody>						
