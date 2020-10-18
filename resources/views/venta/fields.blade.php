@@ -73,18 +73,13 @@
 				<th></th>
 				<th></th>
 				<th></th>
-				
-
-
-<th>
-<input type="number" name="vent_totalFactura" 
-class="form-control" id="vent_totalFactura"
- value="{{ old('vent_totalFactura') }} ">
+				<th>
+				<input type="number" name="vent_totalFactura" 
+				class="form-control" id="vent_totalFactura"
+				value="{{ old('vent_totalFactura') }} ">
 				</th>
-				
 			</tfoot>
-			<tbody>
-									
+			<tbody>						
 			</tbody>
 		</table>
 		
@@ -143,8 +138,7 @@ class="form-control" id="vent_totalFactura"
 	//Muestra botón guardar
 	function evaluar(){
 		if(vent_totalFactura > 0){
-			    // document.getElementById("vent_totalFactura").value = vent_totalFactura;
-
+			document.getElementById("vent_totalFactura").value = vent_totalFactura;
 			$("#guardar").show();
 		}else{
 			$("#guardar").hide();
