@@ -25,7 +25,7 @@ class CreateVentasTable extends Migration
             $table->string('vent_numero');
             $table->string('vent_tipo');
             $table->decimal('vent_iva', 5, 2);
-            $table->string('vent_totalFactura');
+            $table->double('vent_totalFactura');
             $table->timestamps();
 
         });

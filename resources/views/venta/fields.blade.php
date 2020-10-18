@@ -1,3 +1,4 @@
+
 <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
 	<div class="col-md-4">
 		<div class="form-group">
@@ -72,7 +73,14 @@
 				<th></th>
 				<th></th>
 				<th></th>
-				<th><h4 id="vent_totalFactura">0.00</h4></th>
+				
+
+
+<th>
+<input type="number" name="vent_totalFactura" 
+class="form-control" id="vent_totalFactura"
+ value="{{ old('vent_totalFactura') }} ">
+				</th>
 				
 			</tfoot>
 			<tbody>
@@ -86,17 +94,19 @@
 			<button class="btn btn-primary" type="submit">Guardar</button>
 		</div>
 	</div>
-
 @push('scripts')
 <script>
-	
+
+
+
+
 	$(document).ready(function(){
 		$("#bt_add").click(function(){
 			agregar();
 		});
 	});
 	var cont = 0;
-	var vent_totalFactura = 0;
+	  var vent_totalFactura = 0;
 	var subtotal = [];
 	//Cuando cargue el documento
 	//Ocultar el botón Guardar
@@ -113,6 +123,8 @@
 			//subtotal array inicie en el indice cero
 			subtotal[cont] = (vdet_cantidad * precio_articulo);
 			vent_totalFactura = vent_totalFactura + subtotal[cont];
+
+
 			var fila = '<tr class="selected" id="fila'+cont+'"><td><button type="button" class="btn btn-warning" onclick="eliminar('+cont+')">X</button></td><td><input type="hidden" name="articulo_id[]" value="'+articulo_id+'">'+articulo+'</td><td><input type="number" name="vdet_cantidad[]" value="'+vdet_cantidad+'"readonly></td><td><input type="number" name="precio_articulo[]" value="'+precio_articulo+'"readonly></td><td>'+subtotal[cont]+'</td></tr>';
 
 			cont++;
@@ -131,6 +143,8 @@
 	//Muestra botón guardar
 	function evaluar(){
 		if(vent_totalFactura > 0){
+			    // document.getElementById("vent_totalFactura").value = vent_totalFactura;
+
 			$("#guardar").show();
 		}else{
 			$("#guardar").hide();
@@ -143,6 +157,6 @@
 		evaluar();
 	}
 
-	
+
 </script>
 @endpush

@@ -50,7 +50,7 @@ class VentaController extends Controller
         $ventas->vent_numero = request( 'vent_numero'); //envia
         $ventas->vent_tipo = request( 'vent_tipo'); //envia
         $ventas->vent_iva = 10; //envia
-        $ventas->vent_totalFactura = 25000;
+        $ventas->vent_totalFactura = request( 'vent_totalFactura');
 
         $ventas->save();
 
