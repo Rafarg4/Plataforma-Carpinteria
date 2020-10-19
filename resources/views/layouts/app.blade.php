@@ -81,9 +81,11 @@ $(document).ready(function() {
 
             <!-- Logo -->
 
+
             <a href="{{ url('/home') }}" class="logo">
 
                 <b>SIS Carpinteria</b>
+
             </a>
 
             <!-- Header Navbar -->
@@ -170,13 +172,13 @@ $(document).ready(function() {
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}">Home</a></li>
+                    <li><a href="{{ url('/home') }}">INICIO</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
-                    <li><a href="{{ url('/login') }}">Login</a></li>
+                    <li><a href="{{ url('/login') }}">LOGIN</a></li>
                 
                 </ul>
             </div>

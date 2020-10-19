@@ -23,6 +23,7 @@ Route::get('/home', 'HomeController@index')->middleware('verified');
 
 
 
+
 Route::resource('users', 'UserController')->middleware('auth');
 
 
@@ -32,4 +33,12 @@ Route::resource('transferencias', 'TransferenciaController')->middleware('auth')
 Route::resource('depositos', 'DepositoController')->middleware('auth');
 
 Route::resource('stocks', 'StockController')->middleware('auth');
+
+
+
+Route::resource('categorias', 'CategoriaController');
+
+Route::resource('proveedors', 'ProveedorController');
+
+Route::resource('productos', 'ProductoController');
 
