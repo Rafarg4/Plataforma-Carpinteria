@@ -3,12 +3,75 @@
 @section('content')
 <div class="container">
     <div class="row">
-     <div class="jumbotron">
-	  <h1 class="display-4">Hello, {{ Auth::user()->name}}!</h1>
-	  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-	  <hr class="my-4">
-	  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-	  <a class="btn btn-primary btn-lg" href="#" role="button">Iniciar</a>
+  <section class="content">
+      <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+          
+          <div class="col-lg-4 col-">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>DEPOSITO</h3>
+
+                <p>DEPOSITO</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-clone"></i>
+              </div>
+              <a href="{{ route('depositos.index') }}" class="small-box-footer">MAS INFORMACION<i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-4 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                 <h3>STOCK</h3>
+                <p>STOCK</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-book"></i>
+              </div>
+              <a href="{{ route('stocks.index') }}" class="small-box-footer">MAS INFORMACION<i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+             <!-- ./col -->
+          <div class="col-lg-4 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3>USUARIO</h3>
+
+                <p>USUARIOS</p>
+              </div>
+              <div class="icon">
+               <i class="fa fa-user"></i>
+              </div>
+              <a href="{{ route('users.index') }}" class="small-box-footer">MAS INFORMACION<i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+           <!-- ./col -->
+          <div class="col-lg-4 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3>TRANSFERENCIA</h3>
+
+                <p>TRANSFERENCIA</p>
+              </div>
+              <div class="icon">
+               <i class="fa fa-clipboard"></i>
+              </div>
+              <a href="{{ route('transferencias.index') }}" class="small-box-footer">MAS INFORMACION<i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          </div>
+        
+</div>
+</div>
+</section>
+
 </div>
 
     </div>

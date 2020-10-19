@@ -80,7 +80,9 @@
                 <!-- /.col -->
             </div>
         </form>
-        <a href="{{ url('/register') }}" class="text-center">Registrarme</a>
+
+       <a href="{{ url('/register') }}" class="text-center">Registrarme</a>
+
         
     </div>
     <!-- /.login-box-body -->
