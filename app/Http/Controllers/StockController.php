@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Flash;
 use Response;
 use App\Models\Deposito;
+use App\Models\Producto;
 
 class StockController extends AppBaseController
 {
@@ -44,8 +45,9 @@ class StockController extends AppBaseController
     public function create()
     {
         $depositos = Deposito::pluck('descripcion','id');
+        $productos = Producto::pluck('nombre_producto','id');
         return view('stocks.create',compact(
-            'depositos'));  
+            'depositos','productos'));  
     }
 
     /**
@@ -97,13 +99,14 @@ class StockController extends AppBaseController
     {
         $stock = $this->stockRepository->find($id);
         $depositos = Deposito::pluck('descripcion','id');
+         $productos = Producto::pluck('nombre_producto','id');
 
         if (empty($stock)) {
             Flash::error('Stock no encontrado');
 
             return redirect(route('stocks.index'));
         }
-        return view('stocks.edit', compact('stock','depositos'));
+        return view('stocks.edit', compact('stock','depositos','productos'));
 
     }
 

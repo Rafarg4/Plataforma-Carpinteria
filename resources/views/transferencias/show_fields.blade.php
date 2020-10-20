@@ -18,8 +18,8 @@
 
 <!-- Producto Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('producto', 'PRODUCTO:') !!}
-    <p>{{ $transferencia->producto }}</p>
+    {!! Form::label('producto_id', 'PRODUCTO:') !!}
+    <p>{{ $transferencia->producto->nombre_producto }}</p>
 </div>
 
 <!-- Created At Field -->

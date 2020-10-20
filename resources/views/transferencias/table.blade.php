@@ -15,7 +15,7 @@
                 <td>{{ $transferencia->cantidad }}</td>
              <td>{{ $transferencia->deposito1->descripcion}}</td>
             <td>{{ $transferencia->deposito->descripcion}}</td>
-            <td>{{ $transferencia->producto }}</td>
+            <td>{{ $transferencia->producto->nombre_producto }}</td>
                 <td>
                     {!! Form::open(['route' => ['transferencias.destroy', $transferencia->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

@@ -12,19 +12,19 @@
 
 <!-- Categoria Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('categoria_id', 'Categoria Id:') !!}
+    {!! Form::label('categoria_id', 'CATEGORIA:') !!}
     <p>{{ $producto->categoria->nombre_categoria  }}</p>
 </div>
 
 <!-- Created At Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('created_at', 'Created At:') !!}
+    {!! Form::label('created_at', 'CREADO:') !!}
     <p>{{ $producto->created_at }}</p>
 </div>
 
 <!-- Updated At Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('updated_at', 'Updated At:') !!}
+    {!! Form::label('updated_at', 'ACTUALIZADO:') !!}
     <p>{{ $producto->updated_at }}</p>
 </div>
 

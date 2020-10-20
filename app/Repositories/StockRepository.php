@@ -18,7 +18,7 @@ class StockRepository extends BaseRepository
      */
     protected $fieldSearchable = [
         'deposito_id',
-        'producto',
+        'producto_id',
         'cantidad'
     ];
 

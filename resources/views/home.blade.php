@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+
     <div class="row">
   <section class="content">
       <div class="container-fluid">
@@ -64,6 +64,51 @@
                <i class="fa fa-clipboard"></i>
               </div>
               <a href="{{ route('transferencias.index') }}" class="small-box-footer">MAS INFORMACION<i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-4 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3>PRODUCTO</h3>
+
+                <p>PRODUCTO</p>
+              </div>
+              <div class="icon">
+               <i class="fa fa-archive"></i>
+              </div>
+              <a href="{{ route('productos.index') }}" class="small-box-footer">MAS INFORMACION<i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-4 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>CATEGORIA</h3>
+
+                <p>CATEGORIA</p>
+              </div>
+              <div class="icon">
+            <i class="fa fa-edit"></i>
+              </div>
+              <a href="{{ route('categorias.index') }}" class="small-box-footer">MAS INFORMACION<i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-4 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3>PROVEEDOR</h3>
+
+                <p>PROVEEDOR</p>
+              </div>
+              <div class="icon">
+             <i class="fa fa-truck"></i>
+              </div>
+              <a href="{{ route('proveedors.index') }}" class="small-box-footer">MAS INFORMACION<i class="fa fa-arrow-circle-right"></i></a>
             </div>
           </div>
           </div>

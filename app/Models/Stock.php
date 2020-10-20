@@ -27,7 +27,7 @@ class Stock extends Model
 
     public $fillable = [
         'deposito_id',
-        'producto',
+        'producto_id',
         'cantidad'
     ];
 
@@ -39,7 +39,7 @@ class Stock extends Model
     protected $casts = [
         'id' => 'integer',
         'deposito_id' => 'integer',
-        'producto' => 'string',
+        'producto_id' => 'string',
         'cantidad' => 'integer'
     ];
 
@@ -50,11 +50,14 @@ class Stock extends Model
      */
     public static $rules = [
         'deposito_id' => 'required',
-        'producto' => 'required',
+        'producto_id' => 'required',
         'cantidad' => 'required'
     ];
 public function deposito (){
      return $this-> belongsTo('App\Models\Deposito');
+     }
+     public function producto (){
+     return $this-> belongsTo('App\Models\Producto');
      }
     
 }

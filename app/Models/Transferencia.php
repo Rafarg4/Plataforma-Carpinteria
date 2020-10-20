@@ -30,7 +30,7 @@ class Transferencia extends Model
         'cantidad',
         'origne_id',
         'destino_id',
-        'producto'
+        'producto_id'
     ];
 
     /**
@@ -43,7 +43,7 @@ class Transferencia extends Model
         'cantidad' => 'integer',
         'origne_id' => 'integer',
         'destino_id' => 'integer',
-        'producto' => 'string'
+        'producto_id' => 'string'
     ];
 
     /**
@@ -55,7 +55,7 @@ class Transferencia extends Model
         'cantidad' => 'required',
         'origne_id' => 'required',
         'destino_id' => 'required',
-        'producto' => 'required'
+        'producto_id' => 'required'
     ];
 
     public function deposito1(){
@@ -63,6 +63,9 @@ class Transferencia extends Model
     }
     public function deposito(){
         return $this-> belongsTo('App\Models\Deposito', 'destino_id');
+    }
+    public function producto(){
+        return $this-> belongsTo('App\Models\Producto');
     }
     
 }

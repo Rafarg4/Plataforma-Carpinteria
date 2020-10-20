@@ -15,29 +15,29 @@ Código:
 BEGIN
 DECLARE origen int unsigned DEFAULT 0;
 DECLARE destino int unsigned DEFAULT 0;
-SELECT cantidad INTO @cant_stock_orig FROM stocks WHERE deposito_id=new.origne_id && producto= new.producto;
-IF EXISTS (select * from stocks where deposito_id=new.origne_id && producto= new.producto ) THEN set origen=1; ELSE  SET origen=0;
+SELECT cantidad INTO @cant_stock_orig FROM stocks WHERE deposito_id=new.origne_id && producto_id= new.producto_id;
+IF EXISTS (select * from stocks where deposito_id=new.origne_id && producto_id= new.producto_id ) THEN set origen=1; ELSE  SET origen=0;
 END IF;
-IF EXISTS (select * from stocks where deposito_id=new.destino_id && producto= new.producto ) THEN SET destino = 1; ELSE SET destino = 0;
+IF EXISTS (select * from stocks where deposito_id=new.destino_id && producto_id= new.producto_id ) THEN SET destino = 1; ELSE SET destino = 0;
 END IF;
 
 IF new.origne_id= new.destino_id && origen = 0 then
-	INSERT INTO stocks (producto, deposito_id, cantidad) VALUES (new.producto,new.origne_id,new.cantidad);
+	INSERT INTO stocks (producto_id, deposito_id, cantidad) VALUES (new.producto_id,new.origne_id,new.cantidad);
 ELSEIF new.origne_id = new.destino_id && origen = 1 THEN
-	update stocks set cantidad = cantidad + new.cantidad where deposito_id=new.origne_id && producto= new.producto;
+	update stocks set cantidad = cantidad + new.cantidad where deposito_id=new.origne_id && producto_id= new.producto_id;
 ELSEIF origen = 0 && destino = 0 then
-	INSERT INTO stocks (producto, deposito_id, cantidad) VALUES (new.producto,new.origne_id,0);
-    INSERT INTO stocks (producto, deposito_id, cantidad) VALUES (new.producto,new.destino_id,new.cantidad);
+	INSERT INTO stocks (producto_id, deposito_id, cantidad) VALUES (new.producto_id,new.origne_id,0);
+    INSERT INTO stocks (producto_id, deposito_id, cantidad) VALUES (new.producto_id,new.destino_id,new.cantidad);
 ELSEIF origen = 0 && destino = 1 then
-	INSERT INTO stocks (producto, deposito_id, cantidad) VALUES (new.producto,new.origne_id,0);
-    update stocks set cantidad = cantidad + new.cantidad where deposito_id=new.destino_id && producto= new.producto;
+	INSERT INTO stocks (producto_id, deposito_id, cantidad) VALUES (new.producto_id,new.origne_id,0);
+    update stocks set cantidad = cantidad + new.cantidad where deposito_id=new.destino_id && producto_id= new.producto_id;
 
 ELSEIF origen = 1 && destino = 0 then
-	update stocks set cantidad = cantidad - new.cantidad where deposito_id=new.origne_id && producto= new.producto;
-    INSERT INTO stocks (producto, deposito_id, cantidad) VALUES (new.producto,new.destino_id,new.cantidad);
+	update stocks set cantidad = cantidad - new.cantidad where deposito_id=new.origne_id && producto_id= new.producto_id;
+    INSERT INTO stocks (producto_id, deposito_id, cantidad) VALUES (new.producto_id,new.destino_id,new.cantidad);
 ELSE 
-	update stocks set cantidad = cantidad - new.cantidad where deposito_id=new.origne_id && producto= new.producto;
-	update stocks set cantidad = cantidad + new.cantidad where deposito_id=new.destino_id && producto= new.producto;
+	update stocks set cantidad = cantidad - new.cantidad where deposito_id=new.origne_id && producto_id= new.producto_id;
+	update stocks set cantidad = cantidad + new.cantidad where deposito_id=new.destino_id && producto_id= new.producto_id;
 END IF;
 
 END

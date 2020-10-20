@@ -6,8 +6,8 @@
 
 <!-- Producto Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('producto', 'PRODUCTO:') !!}
-    <p>{{ $stock->producto }}</p>
+    {!! Form::label('producto_id', 'PRODUCTO:') !!}
+    <p>{{ $stock->producto->nombre_producto }}</p>
 </div>
 
 <!-- Cantidad Field -->

@@ -56,5 +56,12 @@ class Producto extends Model
 public function categoria (){
         return $this-> belongsTo('App\Models\Categoria');
     }
+    public function stock (){
+        return $this-> hasMany('App\Models\Stock');
+    }
+     public function transferencia (){
+        return $this-> hasMany('App\Models\Transferencia');
+    }
+
     
 }

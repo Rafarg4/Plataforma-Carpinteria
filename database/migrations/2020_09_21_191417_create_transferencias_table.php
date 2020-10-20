@@ -19,11 +19,12 @@ class CreateTransferenciasTable extends Migration
             $table->integer('cantidad');
             $table->integer('origne_id')->unsigned();
             $table->integer('destino_id')->unsigned();
-            $table->text('producto');
+            $table->integer('producto_id')->unsigned();
             $table->timestamps();
             $table->softDeletes();
             $table->foreign('origne_id')->references('id')->on('depositos');
             $table->foreign('destino_id')->references('id')->on('depositos');
+            $table->foreign('producto_id')->references('id')->on('productos');
         });
     }
 

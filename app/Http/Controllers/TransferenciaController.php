@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 use Flash;
 use Response;
 use App\Models\Deposito;
-
+use App\Models\Producto;
 class TransferenciaController extends AppBaseController
 {
     /** @var  TransferenciaRepository */
@@ -44,8 +44,9 @@ class TransferenciaController extends AppBaseController
     public function create()
     {
        $depositos = Deposito::pluck('descripcion','id');
+       $productos = Producto::pluck('nombre_producto','id');
        return view('transferencias.create',compact(
-          'depositos'));
+          'depositos','productos'));
     }
 
     /**

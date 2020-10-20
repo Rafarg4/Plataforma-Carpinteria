@@ -18,8 +18,8 @@
 
 <!-- Producto Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('producto', 'PRODUCTO:') !!}
-    {!! Form::text('producto', null, ['class' => 'form-control']) !!}
+    {!! Form::label('producto_id', 'PRODUCTO:') !!}
+    {!! Form::select('producto_id',$productos ,null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->

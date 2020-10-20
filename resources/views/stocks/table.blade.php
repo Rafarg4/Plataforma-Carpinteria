@@ -12,7 +12,7 @@
         @foreach($stocks as $stock)
             <tr>
                 <td>{{ $stock->deposito->descripcion }}</td>
-            <td>{{ $stock->producto }}</td>
+            <td>{{ $stock->producto->nombre_producto }}</td>
             <td>{{ $stock->cantidad }}</td>
                 <td>
                     {!! Form::open(['route' => ['stocks.destroy', $stock->id], 'method' => 'delete']) !!}
