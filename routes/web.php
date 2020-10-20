@@ -20,13 +20,11 @@ Route::get('/', function () {
 Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->middleware('verified');
-
-
 Route::resource('users', 'UserController')->middleware('auth');
-
+Route::get('venta/printpdf/{id}',  'VentaController@printpdf')->name('ventas.printpdf');
 Route::resource('venta', 'VentaController')->names('ventas')->middleware('auth');
-
-
 Route::get('usersdetail', 'UserController@usersDetail');
 Route::get('ventasdetail', 'VentaController@ventasDetail');
+
+
 

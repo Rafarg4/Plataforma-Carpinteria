@@ -108,5 +108,16 @@ class VentaController extends Controller
 
             return redirect(route('ventas.index'));
         }
-    
+
+    public function   printpdf($id)
+        {
+        
+        return view('venta.printpdf', 
+        ['venta' => Venta::findOrFail($id)], 
+        ['detalle' => Venta_detalle::all() ],
+        );
+        }
+
+   
+
 }
