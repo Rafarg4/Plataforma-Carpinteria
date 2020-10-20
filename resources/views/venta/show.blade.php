@@ -1,7 +1,5 @@
 @extends('layouts.app')
 @section('content')
-<a href="{{url('printpdf' , $venta->id)}}"><button class="btn btn-c">descargar pdf</button></a>
-
     <section class="content-header">
         <h1>
             VENTAS

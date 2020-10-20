@@ -1,4 +1,3 @@
-
 <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
 	<div class="col-md-4">
 		<div class="form-group">
@@ -76,7 +75,7 @@
 				<th>
 				<input type="number" name="vent_totalFactura" 
 				class="form-control" id="vent_totalFactura"
-				value="{{ old('vent_totalFactura') }} " placeholder="{{ old('vent_totalFactura') }} " readonly>
+				value="{{ old('vent_totalFactura') }} " placeholder="0" readonly>
 				</th>
 			</tfoot>
 			<tbody>						

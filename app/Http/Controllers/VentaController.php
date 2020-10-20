@@ -16,32 +16,32 @@ class VentaController extends Controller
     public  function index()
     {
         $ventas =  Venta::all();
-        
-
       return view('venta.index', ['ventas' => $ventas] );
     }
 
     public function show($id)
     {
     
-      return view('venta.show', 
-      ['venta' => Venta::findOrFail($id)], 
-      ['detalle' => Venta_detalle::all() ],
-    );
+      return view('venta.show', ['venta' => Venta::findOrFail($id)], ['detalle' => Venta_detalle::all() ]);
      
     }
 
+    public function pdf($id)
+    {
+        
+      $pdf = PDF::loadView('venta.pdf', ['venta' => Venta::findOrFail($id)], ['detalle' => Venta_detalle::all() ]);
+
+      return $pdf->stream('venta.pdf');
+     
+    }
      public function create()
     {
         $clientes =  Cliente::all();
         $articulos = Articulo::all();
         
-
-        
         return view('venta.create', ['clientes' => $clientes],['articulos' => $articulos] );
     }
 
-   
      public function store(Request $request)
     {
         $ventas = new Venta();
@@ -70,7 +70,7 @@ class VentaController extends Controller
     		while($cont < count($articulo_id))
     		{
     			$detalle = new Venta_detalle;
-    			//$ingreso->id del ingreso que recien se guardo 
+    			//$venta->id del venta que recien se guardo 
     			$detalle->venta_id = $ventas->id;
     			//id_articulo de la posición cero
     			$detalle->articulo_id = $articulo_id[$cont]; //envia
@@ -86,21 +86,7 @@ class VentaController extends Controller
 
     }
 
- 
 
-   
-     public function edit(venta $venta)
-    {
-        //
-    }
-
- 
-     public function update(Request $request, venta $venta)
-    {
-        //
-    }
-
-  
      public function destroy($id)
         {
 
@@ -123,19 +109,16 @@ class VentaController extends Controller
     //    $venta = Venta::findOrFail($id);
     //     $detalle = Venta_detalle::all();
     // $pdf = PDF::loadView('venta/printpdf', ['venta' => $venta], ['detalle' =>$detalle] ); 
-function venta($id){
- $ventas = Venta::find($id);
-   $pdf = PDF::loadView('venta/printpdf', compact('ventas'));
-  return  [$pdf, $ventas];
-  
-   
-}   public function export_pdf($id)
-    {$pdf = PDF::loadView('printpdf', compact('venta'));
+    // function venta($id){
+    //  $ventas = Venta::find($id);
+    //    $pdf = PDF::loadView('venta/printpdf', compact('ventas'));
+    //   return  [$pdf, $ventas];
     
-        return $pdf[0]->download('factura.pdf');
-    }
+    
+    // }   public function export_pdf($id)
+    //     {$pdf = PDF::loadView('printpdf', compact('venta'));
+        
+    //         return $pdf[0]->download('factura.pdf');
+    //     }
 
-
-   
-
-}
+ }
