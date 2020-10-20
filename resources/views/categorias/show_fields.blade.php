@@ -1,24 +1,24 @@
 <!-- Nombre Categoria Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('nombre_categoria', 'Nombre Categoria:') !!}
+    {!! Form::label('nombre_categoria', 'NOMBRE CATEGORIA:') !!}
     <p>{{ $categoria->nombre_categoria }}</p>
 </div>
 
 <!-- Descripcion Categoria Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('descripcion_categoria', 'Descripcion Categoria:') !!}
+    {!! Form::label('descripcion_categoria', 'DESCRIPCION CATEGORIA:') !!}
     <p>{{ $categoria->descripcion_categoria }}</p>
 </div>
 
 <!-- Created At Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('created_at', 'Created At:') !!}
+    {!! Form::label('created_at', 'CREADO:') !!}
     <p>{{ $categoria->created_at }}</p>
 </div>
 
 <!-- Updated At Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('updated_at', 'Updated At:') !!}
+    {!! Form::label('updated_at', 'MODIFICADO:') !!}
     <p>{{ $categoria->updated_at }}</p>
 </div>
 

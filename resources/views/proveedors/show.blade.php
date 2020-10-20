@@ -11,7 +11,7 @@
             <div class="box-body">
                 <div class="row" style="padding-left: 20px">
                     @include('proveedors.show_fields')
-                    <a href="{{ route('proveedors.index') }}" class="btn btn-default">ATRAS</a>
+                    <a href="{{ route('proveedors.index') }}" class="btn btn-default">VOLVER</a>
                 </div>
             </div>
         </div>

@@ -1,12 +1,12 @@
 <!-- Nombre Producto Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('nombre_producto', 'Nombre Producto:') !!}
+    {!! Form::label('nombre_producto', 'NOMBRE PRODUCTO:') !!}
     <p>{{ $producto->nombre_producto }}</p>
 </div>
 
 <!-- Descripcion Producto Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('descripcion_producto', 'Descripcion Producto:') !!}
+    {!! Form::label('descripcion_producto', 'DESCRIPCION PRODUCTO:') !!}
     <p>{{ $producto->descripcion_producto }}</p>
 </div>
 
