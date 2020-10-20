@@ -6,8 +6,9 @@ use App\cliente;
 use App\articulo;
 use App\venta_detalle;
 use Illuminate\Http\Request;
- 
+use PDF;
 
+use function GuzzleHttp\Promise\all;
 
 class VentaController extends Controller
 {
@@ -27,6 +28,7 @@ class VentaController extends Controller
       ['venta' => Venta::findOrFail($id)], 
       ['detalle' => Venta_detalle::all() ],
     );
+     
     }
 
      public function create()
@@ -109,14 +111,30 @@ class VentaController extends Controller
             return redirect(route('ventas.index'));
         }
 
-    public function   printpdf($id)
-        {
-        
-        return view('venta.printpdf', 
-        ['venta' => Venta::findOrFail($id)], 
-        ['detalle' => Venta_detalle::all() ],
-        );
-        }
+    // public function  printpdf(id $id)
+    //     {
+    //      $venta = Venta::find($id);
+    //     $pdf = PDF::loadView('printpdf', ['venta' => $venta]);
+    // return $pdf->download('printpdf.pdf');
+    //     }
+
+
+    //     Route::get('pdf/{$id}',  function($id){
+    //    $venta = Venta::findOrFail($id);
+    //     $detalle = Venta_detalle::all();
+    // $pdf = PDF::loadView('venta/printpdf', ['venta' => $venta], ['detalle' =>$detalle] ); 
+function venta($id){
+ $ventas = Venta::find($id);
+   $pdf = PDF::loadView('venta/printpdf', compact('ventas'));
+  return  [$pdf, $ventas];
+  
+   
+}   public function export_pdf($id)
+    {$pdf = PDF::loadView('printpdf', compact('venta'));
+    
+        return $pdf[0]->download('factura.pdf');
+    }
+
 
    
 
