@@ -27,12 +27,17 @@
   
   
                        
-	<table>
+	<table border="2">
 
 		<thead style="background-color: #A9D0F5">
    <tr>
     <th>CANT.</th>
     <th>CLASE DE MERCADERIAS y/o SERVICIOS</th>
+    <th>PRECIO UNI.</th>
+    <th>EXENTAS</th>
+    <th>5%</th>
+    <th>10%</th>
+    
    </tr>
    </thead>	
 
@@ -41,15 +46,26 @@
    <tr>
     <td><p>{{   $det->vdet_cantidad }}</p></td>
     <td><p>{{ $det->articulo->articulos_descripcion }}</p></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
    </tr>
    @endif
     @endforeach
 
 
    <tr>
-    <td colspan="3"><p>Precio total</p></td>
+    <td colspan="3"><p>TOTAL A PAGAR GS.</p></td>
 	  <td><p>{{ $venta->vent_totalFactura }}</p></td>
    </tr> 
+
+   <tr>
+    <td colspan="2">TASA DEL IVA:</td>
+    <td>(5%)</td>
+    <td>(10%)</td>
+    <td>TOTAL IVA:</td>
+   </tr>
   </table>       
     <a href="{{ route('ventas.index') }}" class="btn btn-default">VOLVER</a>
 </body>
