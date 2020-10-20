@@ -22,17 +22,20 @@ class VentaController extends Controller
     public function show($id)
     {
     
-      return view('venta.show', ['venta' => Venta::findOrFail($id)], ['detalle' => Venta_detalle::all() ]);
+      return view('venta.show', 
+        ['venta' => Venta::findOrFail($id)], 
+        ['detalle' => Venta_detalle::all() ]);
      
     }
 
     public function pdf($id)
     {
         
-      $pdf = PDF::loadView('venta.pdf', ['venta' => Venta::findOrFail($id)], ['detalle' => Venta_detalle::all() ]);
+      $pdf = PDF::loadView('venta.pdf', 
+        ['venta' => Venta::findOrFail($id)], 
+        ['detalle' => Venta_detalle::all() ]);
 
       return $pdf->stream('venta.pdf');
-     
     }
      public function create()
     {
@@ -89,36 +92,11 @@ class VentaController extends Controller
 
      public function destroy($id)
         {
-
             $ventas = Venta::find($id);
             $ventas->delete();
            
 
             return redirect(route('ventas.index'));
         }
-
-    // public function  printpdf(id $id)
-    //     {
-    //      $venta = Venta::find($id);
-    //     $pdf = PDF::loadView('printpdf', ['venta' => $venta]);
-    // return $pdf->download('printpdf.pdf');
-    //     }
-
-
-    //     Route::get('pdf/{$id}',  function($id){
-    //    $venta = Venta::findOrFail($id);
-    //     $detalle = Venta_detalle::all();
-    // $pdf = PDF::loadView('venta/printpdf', ['venta' => $venta], ['detalle' =>$detalle] ); 
-    // function venta($id){
-    //  $ventas = Venta::find($id);
-    //    $pdf = PDF::loadView('venta/printpdf', compact('ventas'));
-    //   return  [$pdf, $ventas];
-    
-    
-    // }   public function export_pdf($id)
-    //     {$pdf = PDF::loadView('printpdf', compact('venta'));
-        
-    //         return $pdf[0]->download('factura.pdf');
-    //     }
 
  }

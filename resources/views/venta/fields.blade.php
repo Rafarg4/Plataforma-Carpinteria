@@ -27,7 +27,7 @@
 		</div>
         <div class="form-group">
             <label for="vent_numero">Número de Factura</label>
-            <input type="text" name="vent_numero" class="form-control" placeholder="Número de Factura" value="{{ old('vent_numero') }} ">
+            <input type="text" name="vent_numero" class="form-control" placeholder="Número de Factura" value="001-001- {{ old('vent_numero') }} ">
         </div>
     </div>
 <!-- agregar articulos -->
@@ -73,9 +73,9 @@
 				<th></th>
 				<th></th>
 				<th>
-				<input type="number" name="vent_totalFactura" 
-				class="form-control" id="vent_totalFactura"
-				value="{{ old('vent_totalFactura') }} " placeholder="0" readonly>
+				<input 	type="number" name="vent_totalFactura" 
+						class="form-control" id="vent_totalFactura"
+						value="{{ old('vent_totalFactura') }} " placeholder="0" readonly>
 				</th>
 			</tfoot>
 			<tbody>						
