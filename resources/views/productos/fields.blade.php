@@ -13,7 +13,7 @@
 <!-- Categoria Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('categoria_id', 'CATEGORIA:') !!}
-    {!! Form::select('categoria_id', $categorias, null, ['class' => 'form-control']) !!}
+    {!! Form::select('categoria_id', $categorias, null, ['required', 'class' => 'form-control','placeholder'=>'Seleccione'])!!}
 </div>
 
 <!-- Submit Field -->
