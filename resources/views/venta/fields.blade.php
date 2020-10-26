@@ -2,20 +2,23 @@
 	<div class="col-md-4">
 		<div class="form-group">
 			<label for="vent_fecha">Fecha</label>
-			<input type="date" name="vent_fecha" class="form-control" value="{{ old('vent_fecha') }}">
+			<input type="date" name="vent_fecha" class="form-control" value="{{ old('vent_fecha',  Carbon\Carbon::today()->format('Y-m-d')) }}">
 		</div>
         <div class="form-group">
-			<label for="user_id">Vendedor: {{Auth::user()->name}}</label>
-			<input type="text" name="user_id" class="form-control" value="{{ Auth::user()->id }}" readonly>
+			<label for="user_id">Vendedor</label>
+			<input type="hidden" name="user_id" class="form-control" value="{{ Auth::user()->id }}"  placeholder="{{ Auth::user()->name }}" readonly >
+			<input type="text"  class="form-control" value="{{ Auth::user()->name }}"  placeholder="{{ Auth::user()->name }}" readonly >
+
 		</div>			
 		<div class="form-group">
+			<label for="vent_tipo">Forma de Pago</label>			
 			<select name="vent_tipo" id="vent_tipo" class="form-control">
 				<option value="contado" selected>Contado</option>
-				<option value="credito" >Credito</option>
+				<option value="credito" >Crédito</option>
 			</select>
 		</div>
+		
 	</div>
-	
 	<div class="col-md-4">
         <div class="form-group">
 			<label for="cliente_id">Cliente</label>
@@ -27,32 +30,38 @@
 		</div>
         <div class="form-group">
             <label for="vent_numero">Número de Factura</label>
-            <input type="text" name="vent_numero" class="form-control" placeholder="Número de Factura" value="001-001- {{ old('vent_numero') }} ">
-        </div>
+            <input type="text" name="vent_numero" class="form-control" placeholder="Número de Factura" value="001-001-{{ old('vent_id') }} ">
+		</div>
+		<div class="form-group">
+			<label for="vent_iva">IVA</label>			
+			<select name="vent_iva" id="vent_iva" class="form-control">
+				<option value="5" selected>5%</option>
+				<option value="10" >10%</option>
+			</select>
+		</div>
     </div>
 <!-- agregar articulos -->
 	<div class="col-md-4">
-		<div class="form-group">
+		<div class="form-group precio">
 			<label for="articulo">Artículo</label>
 			<select name="articulo_descripcion" id="articulo_descripcion" class="form-control selectpicker" data-live-search="true">
 				@foreach($articulos as $art)
-					<option value="{{ $art->id }}">
-						{{ $art->articulos_descripcion }}					
+					<option value="{{ $art->id }}" id="articulo_select" data-precio="{{ $art->articulos_precio }}  " >
+						{{ $art->articulos_descripcion }}  
 					</option>
 				@endforeach
 			</select>
 		</div>
 	</div>
 	<div class="col-md-2">
-			<div class="form-group">
-				<label for="articulos_precio">Precio Articulo</label>
-				<input type="number" name="articulos_precio" id="articulos_precio" class="form-control" placeholder="Precio del Articulo" value="">
-			</div>
+		<div class="form-group">
+			<label for="articulos_precio"> Precio</label>
+			<input type="text" class="form-control precio" readonly name="articulos_precio" id="articulos_precio"  >
+		</div>
 			<div class="form-group">
 				<label for="vdet_cantidad">Cantidad</label>
 				<input type="number" name="vdet_cantidad" id="vdet_cantidad" class="form-control"  placeholder="Cantidad del articulo" value="{{ old('vdet_cantidad') }}">
 			</div>
-
 		<div class="form-group">
 			<button type="button" id="bt_add" class="btn btn-primary">Agregar</button>
 		</div>
@@ -60,7 +69,7 @@
 <!-- Tabla de los articulos agregados -->
 	<div class="col-md-12">
 		<table id="detalles" class="table table-striped table-bordered table-hover table-condensed" style="margin-top: 10px">
-			<thead style="background-color: #A9D0F5">
+			<thead style="background-color: #A9D0F5;">
 				<th>Opciones</th>
 				<th>Artículo</th>
 				<th>Cantidad</th>
@@ -68,18 +77,21 @@
 				<th>Subtotal</th>
 			</thead>
 			<tfoot>
-				<th>Total</th>
 				<th></th>
-				<th></th>
-				<th></th>
+				<th>IVA</th>
 				<th>
-				<input 	type="number" name="vent_totalFactura" 
-						class="form-control" id="vent_totalFactura"
-						value="{{ old('vent_totalFactura') }} " placeholder="0" readonly>
+					<input 	type="number" name="vent_totalIva" 
+						class="form-control" id="vent_totalIva"
+						value="{{ old('vent_totalIva') }} " placeholder="0" readonly>
+				</th>
+				<th>Total</th>
+				<th>
+					<input 	type="number" name="vent_totalFactura" 
+							class="form-control" id="vent_totalFactura"
+							value="{{ old('vent_totalFactura') }} " placeholder="0" readonly>
 				</th>
 			</tfoot>
-			<tbody>						
-			</tbody>
+			
 		</table>
 		
 	</div>
@@ -100,8 +112,10 @@
 		});
 	});
 	var cont = 0;
-	  var vent_totalFactura = 0;
+	var vent_totalFactura = 0;
 	var subtotal = [];
+	var iva = 0;
+	var vent_totalIva = 0;
 	//Cuando cargue el documento
 	//Ocultar el botón Guardar
 	$("#guardar").hide();
@@ -111,16 +125,21 @@
 		articulo = $("#articulo_descripcion option:selected").text();
 		vdet_cantidad = $("#vdet_cantidad").val();
 		precio_articulo = $("#articulos_precio").val();
-
+		iva =   $("#vent_iva option:selected").val();
 		//Validar los campos
 		if(articulo_id != "" && vdet_cantidad > 0 && precio_articulo != ""){
 			//subtotal array inicie en el indice cero
 			subtotal[cont] = (vdet_cantidad * precio_articulo);
 			vent_totalFactura = vent_totalFactura + subtotal[cont];
 
+			//calcula iva
+			if(iva == 10){
+			vent_totalIva = vent_totalFactura /11;
+			} else{
+			vent_totalIva = vent_totalFactura /21;
+			}
 
-			var fila = '<tr class="selected" id="fila'+cont+'"><td><button type="button" class="btn btn-warning" onclick="eliminar('+cont+')">X</button></td><td><input type="hidden" name="articulo_id[]" value="'+articulo_id+'">'+articulo+'</td><td><input type="number" name="vdet_cantidad[]" value="'+vdet_cantidad+'"readonly></td><td><input type="number" name="precio_articulo[]" value="'+precio_articulo+'"readonly></td><td>'+subtotal[cont]+'</td></tr>';
-
+			var fila = '<tr class="selected" id="fila'+cont+'"><td><button type="button" class="btn btn-warning" onclick="eliminar('+cont+')">X</button></td><td><input type="hidden" name="articulo_id[]" value="'+articulo_id+'">'+articulo+'</td><td><input type="number" name="vdet_cantidad[]" value="'+vdet_cantidad+'"readonly></td><td><input type="text" name="precio_articulo[]" value="'+precio_articulo+'"readonly></td><td>'+subtotal[cont]+'</td></tr>';
 			cont++;
 			limpiar();
 			$("#vent_totalFactura").html("₲" + vent_totalFactura);
@@ -137,6 +156,8 @@
 	//Muestra botón guardar
 	function evaluar(){
 		if(vent_totalFactura > 0){
+			//muestra total factura
+			document.getElementById("vent_totalIva").value = vent_totalIva.toFixed(2);
 			document.getElementById("vent_totalFactura").value = vent_totalFactura;
 			$("#guardar").show();
 		}else{
@@ -150,6 +171,12 @@
 		evaluar();
 	}
 
-
+	//Traer precio de artículos
+	$('.precio').on('change', function() {
+	$('.precio')
+	.val(
+		$(this).find(':selected').data('precio')
+	);
+	});
 </script>
 @endpush

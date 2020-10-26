@@ -7,6 +7,7 @@ use App\articulo;
 use App\venta_detalle;
 use Illuminate\Http\Request;
 use PDF;
+use Carbon\Carbon;
 
 use function GuzzleHttp\Promise\all;
 
