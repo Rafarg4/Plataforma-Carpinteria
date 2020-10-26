@@ -8,6 +8,9 @@
         <h1 class="pull-right">
            <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{{ route('ventas.create') }}">Nueva Venta</a>
         </h1>
+        <h1 class="pull-right">
+           <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 15px" href="{{ route('ventas.edit') }}">Editar</a>
+        </h1>
 </section>
 
 <div class="content">
