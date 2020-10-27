@@ -10,7 +10,10 @@ class venta_detalle extends Model
     
          protected $table ='ventas_detalle';
          public $primaryKey = 'id';
-      
+         public static $rules= [
+            'vent_fecha' => 'required',
+            'vent_numero' => 'required'
+        ];
          public function ventas(){
             return $this->belongsTo('app\venta');
         }

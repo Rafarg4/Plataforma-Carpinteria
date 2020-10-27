@@ -2,7 +2,7 @@
 	<div class="col-md-4">
 		<div class="form-group">
 			<label for="vent_fecha">Fecha</label>
-			<input type="date" name="vent_fecha" class="form-control" value="{{ old('vent_fecha',  Carbon\Carbon::today()->format('Y-m-d')) }}">
+			<input type="date" name="vent_fecha" class="form-control" value="{{ old('vent_fecha',  Carbon\Carbon::today()->format('Y-m-d')) }}"required>
 		</div>
         <div class="form-group">
 			<label for="user_id">Vendedor</label>
@@ -28,10 +28,10 @@
 				@endforeach
 			</select> 
 		</div>
-        <div class="form-group">
+		<div class="form-group">
             <label for="vent_numero">Número de Factura</label>
-            <input type="text" name="vent_numero" class="form-control" placeholder="Número de Factura" value="001-001-{{ App\venta::latest('id')->first()->id }}">
-		</div>
+            <input type="text" name="vent_numero" class="form-control" placeholder="Número de Factura" minlength= "15"  title="Tamaño mínimo: 15." value="001-001-{{ App\venta::latest('id')->first()->id }}" required>
+        </div>
 	
     </div>
 <!-- agregar articulos -->
