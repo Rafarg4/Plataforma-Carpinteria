@@ -150,7 +150,7 @@
 			evaluar();
 			$("#detalles").append(fila);
 		}else{
-			alert("Error al ingresar el detalle del ingreso, revise los datos del artículo");
+			alert("Error al ingresar el detalle de la venta, revise los datos del artículo");
 		}
 	}
 	function limpiar(){

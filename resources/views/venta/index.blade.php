@@ -43,7 +43,7 @@
                             <td>
                                 {!! Form::open(['route' => ['ventas.destroy', $venta->id], 'method' => 'delete']) !!}
                                 <div class='btn-group'>
-                                    {{-- <a href="{{route('ventas.printpdf', [$venta->id]) }}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-file"></i></a> --}}
+                                <a href="{{ route('ventas.edit', [$venta->id]) }}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
                                     <a href="{{ route('ventas.show', [$venta->id]) }}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
                                     <a href="{{ route('pdf', [$venta->id]) }}" class='btn btn-default btn-xs'>Imprimir Factura</a>
                                     {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('ESTA SEGURO?')"]) !!}
