@@ -15,6 +15,7 @@ class AddTipoIva extends Migration
     {
         Schema::table('ventas', function ($table) {
             $table->decimal('vent_iva', 9, 2)->change();
+            $table->decimal('vent_iva', 9, 2);
         });
         Schema::table('articulos', function ($table) {
             $table->integer('art_tipoIva');

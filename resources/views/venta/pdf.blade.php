@@ -103,8 +103,8 @@
 
    <tr>
     <td colspan="2" >Liquidación del IVA:</td>
-    <td>(5%)</td>
-    <td>(10%)</td>
+    <td>(5%) {{ $venta->vent_iva5}}</td>
+    <td>(10%) {{ $venta->vent_iva10}}</td>
 
     <td>TOTAL IVA:</td>
     <td >{{ $venta->vent_iva}}</td>

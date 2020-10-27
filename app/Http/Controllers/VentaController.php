@@ -43,7 +43,7 @@ class VentaController extends Controller
         $clientes =  Cliente::all();
         $articulos = Articulo::all();
         
-        return view('venta.create', ['clientes' => $clientes],['articulos' => $articulos] );
+        return view('venta.create', ['clientes' => $clientes],['articulos' => $articulos]  );
     }
 
      public function store(Request $request)
@@ -56,6 +56,9 @@ class VentaController extends Controller
         $ventas->vent_numero = request( 'vent_numero'); //envia
         $ventas->vent_tipo = request( 'vent_tipo'); //envia
         $ventas->vent_iva = request( 'vent_totalIva'); //envia
+        $ventas->vent_iva5 = request( 'vent_iva5'); //envia
+       $ventas->vent_iva10 = request( 'vent_iva10'); //envia
+             
         $ventas->vent_totalFactura = request( 'vent_totalFactura');
 
         $ventas->save();
