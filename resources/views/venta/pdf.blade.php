@@ -4,6 +4,17 @@
   
 </head>
 <body>
+<style>
+    table, th, td, tr {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+    th {
+      text-align: center;
+    }
+
+  
+  </style>
 <!-- CABECERA DE LA FACTURA -->
 <table style="width:100%">
   <tr>
@@ -30,34 +41,24 @@
 <!-- DETALLE DEL CLIENTE -->
 <table style="width:100%">
   <tr>
-    <td> {{ $venta->vent_fecha }} </td>
-    <td style="text-align: right;">Tipo de venta: {{ $venta->vent_tipo }} </td>
+    <td>FECHA DE EMISION {{ $venta->vent_fecha }} </td>
+    <td style="text-align: right;">CONDICION DE VENTA: {{ $venta->vent_tipo }} </td>
     
   </tr>
 
   <tr>
-  <td>RUC: {{ $venta->cliente->clientes_ruc }}</td>
-  <td></td>
+    <td>RUC: {{ $venta->cliente->clientes_ruc }}</td>
+    <td style="text-align: right;">NOTA DE REMISION Nº........</td>
   </tr>
 
   <tr>
-  <td>NOMBRE O RAZÓN SOCIAL: {{ $venta->cliente->clientes_nombre }}</td>
-  <td style="text-align: right;">VENDEDOR: {{ $venta->user->name }}</td>
+    <td>NOMBRE O RAZÓN SOCIAL: {{ $venta->cliente->clientes_nombre }}</td>
+    <td style="text-align: right;">VENDEDOR: {{ $venta->user->name }}</td>
   </tr>
 </table> 
 <br>           
   <!-- DETALLE DE LA VENTA -->
-  <style>
-    table, th, td, tr {
-      border: 1px solid black;
-      border-collapse: collapse;
-    }
-    th {
-      text-align: center;
-    }
-
   
-  </style>
                        
 <table style="width:100%">
 
@@ -79,8 +80,16 @@
     <td>{{ $det->articulo->articulos_descripcion }}</td>
     <td></td>
     <td></td>
-    <td></td>
-    <td></td>
+    <td>
+      @if ($det->articulo->art_tipoIva == 5)
+        {{$det->articulo->articulos_precio}}
+      @endif
+    </td>
+    <td>
+      @if ($det->articulo->art_tipoIva == 10)
+        {{$det->articulo->articulos_precio}}
+      @endif
+    </td>
    </tr>
   @endif
 @endforeach
@@ -102,12 +111,14 @@
    </tr> 
 
    <tr>
-    <td colspan="2" >Liquidación del IVA:</td>
-    <td>(5%) {{ $venta->vent_iva5}}</td>
-    <td>(10%) {{ $venta->vent_iva10}}</td>
-
-    <td>TOTAL IVA:</td>
-    <td >{{ $venta->vent_iva}}</td>
+    <td colspan="6" >
+      <p>LIQUIDACION DEL IVA: 
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(5%): {{ $venta->vent_iva5}}  
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(10%): {{ $venta->vent_iva10}}  
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TOTAL IVA: {{ $venta->vent_iva}}
+      </p>
+    </td>
+    
    </tr>
 
    <tr>
