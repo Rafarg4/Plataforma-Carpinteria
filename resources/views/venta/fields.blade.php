@@ -30,7 +30,7 @@
 		</div>
 		<div class="form-group">
             <label for="vent_numero">Número de Factura</label>
-            <input type="text" name="vent_numero" class="form-control" placeholder="Número de Factura" minlength= "15"  title="Tamaño mínimo: 15." value="001-001-{{ App\venta::latest('id')->first()->id }}" required>
+            <input type="text" name="vent_numero" class="form-control" placeholder="Número de Factura" minlength= "15"  title="Tamaño mínimo: 15." value="001-001-{{ old('vent_numero') }}" required>
         </div>
 	
     </div>
