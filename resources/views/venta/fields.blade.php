@@ -32,21 +32,15 @@
             <label for="vent_numero">Número de Factura</label>
             <input type="text" name="vent_numero" class="form-control" placeholder="Número de Factura" value="001-001-{{ old('vent_id') }} ">
 		</div>
-		<div class="form-group">
-			<label for="vent_iva">IVA</label>			
-			<select name="vent_iva" id="vent_iva" class="form-control">
-				<option value="5" selected>5%</option>
-				<option value="10" >10%</option>
-			</select>
-		</div>
+	
     </div>
 <!-- agregar articulos -->
 	<div class="col-md-4">
-		<div class="form-group precio">
+		<div class="form-group precio iva">
 			<label for="articulo">Artículo</label>
 			<select name="articulo_descripcion" id="articulo_descripcion" class="form-control selectpicker" data-live-search="true">
 				@foreach($articulos as $art)
-					<option value="{{ $art->id }}" id="articulo_select" data-precio="{{ $art->articulos_precio }}  " >
+					<option value="{{ $art->id }}" id="articulo_select" data-precio="{{ $art->articulos_precio }}" data-iva="{{ $art->art_tipoIva }}" >
 						{{ $art->articulos_descripcion }}  
 					</option>
 				@endforeach
@@ -57,6 +51,10 @@
 		<div class="form-group">
 			<label for="articulos_precio"> Precio</label>
 			<input type="text" class="form-control precio" readonly name="articulos_precio" id="articulos_precio"  >
+		</div>
+			<div class="form-group">
+			<label for="articulos_iva"> IVA del Artículo</label>
+			<input type="text" class="form-control iva" readonly name="articulos_iva" id="articulos_iva"  >
 		</div>
 			<div class="form-group">
 				<label for="vdet_cantidad">Cantidad</label>
@@ -73,6 +71,7 @@
 				<th>Opciones</th>
 				<th>Artículo</th>
 				<th>Cantidad</th>
+				<th>IVA</th>
 				<th>Precio Articulo</th>
 				<th>Subtotal</th>
 			</thead>
@@ -114,8 +113,9 @@
 	var cont = 0;
 	var vent_totalFactura = 0;
 	var subtotal = [];
-	var iva = 0;
 	var vent_totalIva = 0;
+	var iva =  [];
+
 	//Cuando cargue el documento
 	//Ocultar el botón Guardar
 	$("#guardar").hide();
@@ -125,21 +125,25 @@
 		articulo = $("#articulo_descripcion option:selected").text();
 		vdet_cantidad = $("#vdet_cantidad").val();
 		precio_articulo = $("#articulos_precio").val();
-		iva =   $("#vent_iva option:selected").val();
+
 		//Validar los campos
 		if(articulo_id != "" && vdet_cantidad > 0 && precio_articulo != ""){
 			//subtotal array inicie en el indice cero
 			subtotal[cont] = (vdet_cantidad * precio_articulo);
-			vent_totalFactura = vent_totalFactura + subtotal[cont];
-
+			vent_totalFactura = vent_totalFactura + subtotal[cont];				
+			iva[cont] =   $("#articulos_iva").val();
+			
 			//calcula iva
-			if(iva == 10){
-			vent_totalIva = vent_totalFactura /11;
-			} else{
-			vent_totalIva = vent_totalFactura /21;
+			if(iva[cont] == 10){
+			vent_totalIva = vent_totalIva + subtotal[cont] /11;
+			} 
+			if(iva[cont] == 5){
+			vent_totalIva = vent_totalIva + subtotal[cont] /21;
 			}
+		
+			
 
-			var fila = '<tr class="selected" id="fila'+cont+'"><td><button type="button" class="btn btn-warning" onclick="eliminar('+cont+')">X</button></td><td><input type="hidden" name="articulo_id[]" value="'+articulo_id+'">'+articulo+'</td><td><input type="number" name="vdet_cantidad[]" value="'+vdet_cantidad+'"readonly></td><td><input type="text" name="precio_articulo[]" value="'+precio_articulo+'"readonly></td><td>'+subtotal[cont]+'</td></tr>';
+			var fila = '<tr class="selected" id="fila'+cont+'"><td><button type="button" class="btn btn-warning" onclick="eliminar('+cont+')">X</button></td><td><input type="hidden" name="articulo_id[]" value="'+articulo_id+'">'+articulo+'</td><td><input type="number" name="vdet_cantidad[]" value="'+vdet_cantidad+'"readonly></td><td>'+iva[cont]+'</td><td><input type="text" name="precio_articulo[]" value="'+precio_articulo+'"readonly></td><td>'+subtotal[cont]+'</td></tr>';
 			cont++;
 			limpiar();
 			$("#vent_totalFactura").html("₲" + vent_totalFactura);
@@ -165,6 +169,16 @@
 		}
 	}
 	function eliminar(index){
+
+			if(iva[index] == 10){
+		vent_totalIva = vent_totalIva-(subtotal[index]/11);
+			} 
+			if(iva[index] == 5){
+		vent_totalIva = vent_totalIva-(subtotal[index]/21);
+			}
+		
+
+
 		vent_totalFactura = vent_totalFactura-subtotal[index];
 		$("#vent_totalFactura").html("₲" + vent_totalFactura);
 		$("#fila" + index).remove();
@@ -176,6 +190,15 @@
 	$('.precio')
 	.val(
 		$(this).find(':selected').data('precio')
+	);
+	});
+
+	
+	//Traer IVA de artículos
+	$('.iva').on('change', function() {
+	$('.iva')
+	.val(
+		$(this).find(':selected').data('iva')
 	);
 	});
 </script>

@@ -24,6 +24,7 @@
                         <th scope="col">Fecha</th>
                         <th scope="col">Numero de factura</th>
                         <th scope="col">Tipo de venta</th>
+                        <th scope="col">Total IVA</th>
                         <th scope="col">Total venta</th>
                         <th>ACCION</th>       
                     </tr>
@@ -37,6 +38,7 @@
                             <th>{{$venta->vent_fecha }}</th>
                             <th>{{$venta->vent_numero }}</th>
                             <th>{{$venta->vent_tipo }}</th>
+                            <th>{{$venta->vent_iva }}</th>
                             <th>{{$venta->vent_totalFactura }}</th>
                             <td>
                                 {!! Form::open(['route' => ['ventas.destroy', $venta->id], 'method' => 'delete']) !!}
