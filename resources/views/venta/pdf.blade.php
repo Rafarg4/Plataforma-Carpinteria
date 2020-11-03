@@ -81,14 +81,10 @@
     <td></td>
     <td></td>
     <td>
-      @if ($det->articulo->art_tipoIva == 5)
-        {{$det->articulo->articulos_precio}}
-      @endif
+      
     </td>
     <td>
-      @if ($det->articulo->art_tipoIva == 10)
-        {{$det->articulo->articulos_precio}}
-      @endif
+      
     </td>
    </tr>
   @endif

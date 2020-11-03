@@ -8,12 +8,13 @@
         <!-- Small boxes (Stat box) -->
         <div class="row">
           
-          <div class="col-lg-3 col-6" style="color-font: black">
+          <div class="col-lg-4 col-6">
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>Ventas</h3>
+                <h3>VENTAS</h3>
                
+                <p>VENTAS</p>
               </div>
               <div class="icon">
                 <i class="fa fa-clone"></i>
