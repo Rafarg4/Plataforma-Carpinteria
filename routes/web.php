@@ -32,3 +32,6 @@ Route::resource('depositos', 'DepositoController')->middleware('auth');
 
 Route::resource('stocks', 'StockController')->middleware('auth');
 
+
+
+Route::resource('compras', 'CompraController');
