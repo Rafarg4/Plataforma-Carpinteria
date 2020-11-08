@@ -20,6 +20,9 @@
     <a href="{{ route('transferencias.index') }}"> <i class="fa fa-clipboard"></i><span>TRANSFERENCIA</span></a>
 </li>
 <li class="{{ Request::is('users*') ? 'active' : '' }}">
-
     <a href="{{ route('users.index') }}"><i class="fa fa-user"></i><span>USUARIO</span></a>
 </li>
+<li class="{{ Request::is('compras*') ? 'active' : '' }}">
+    <a href="{{ route('compras.index') }}"><i class="fa fa-shopping-cart"></i><span>COMPRAS</span></a>
+</li>
+

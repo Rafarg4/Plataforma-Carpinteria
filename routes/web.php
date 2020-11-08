@@ -35,10 +35,11 @@ Route::resource('depositos', 'DepositoController')->middleware('auth');
 Route::resource('stocks', 'StockController')->middleware('auth');
 
 
-
 Route::resource('categorias', 'CategoriaController');
 
 Route::resource('proveedors', 'ProveedorController');
 
 Route::resource('productos', 'ProductoController');
+
+Route::resource('compras', 'CompraController');
 
