@@ -17,6 +17,6 @@
 </li>
 
 <li class="{{ Request::is('compras*') ? 'active' : '' }}">
-    <a href="{{ route('compras.index') }}"><i class="fa fa-edit"></i><span>Compras</span></a>
+    <a href="{{ route('compras.index') }}"><i class="fa fa-edit"></i><span>COMPRAS</span></a>
 </li>
 
