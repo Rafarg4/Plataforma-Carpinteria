@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateVentasDetalleTable extends Migration
+class CreateCompraDetallTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,11 +14,13 @@ class CreateVentasDetalleTable extends Migration
     public function up()
     {
         Schema::create('compra_detalles', function (Blueprint $table) {
-             $table->id();
-             $table->foreignId('compra_id')->constrained()->onDelete('cascade');
-             $table->foreignId('producto_id')->constrained();
-             $table->string('cdet_cantidad');
-             $table->timestamps();
+            $table->id();
+            $table->integer('compra_id')->unsigned();
+            $table->integer('producto_id')->unsigned();
+            $table->foreign('compra_id')->references('id')->on('compras');
+            $table->foreign('producto_id')->references('id')->on('productos');
+            $table->string('cdet_cantidad');
+            $table->timestamps();
         });
     }
 
@@ -32,3 +34,7 @@ class CreateVentasDetalleTable extends Migration
         Schema::dropIfExists('compra_detalles');
     }
 }
+
+
+
+
