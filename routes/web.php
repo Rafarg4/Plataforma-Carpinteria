@@ -42,3 +42,8 @@ Route::resource('proveedors', 'ProveedorController');
 
 Route::resource('productos', 'ProductoController');
 
+
+
+
+
+Route::resource('pedidos', 'PedidoController');
