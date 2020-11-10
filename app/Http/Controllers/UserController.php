@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Flash;
 use Response;
+use app\user;
 
 class UserController extends AppBaseController
 {
@@ -34,7 +35,13 @@ class UserController extends AppBaseController
 
         return view('users.index')
             ->with('users', $users);
+
+
+
+
+
     }
+
 
     /**
      * Show the form for creating a new User.

@@ -20,20 +20,17 @@ Route::get('/', function () {
 Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->middleware('verified');
-
-
-
-
 Route::resource('users', 'UserController')->middleware('auth');
+Route::resource('venta', 'VentaController')->names('ventas')->middleware('auth');
 
+Route::get('/venta/pdf/{id}', 'VentaController@pdf')->name('pdf');
+Route::resource('cliente', 'ClienteController')->names('clientes')->middleware('auth');
 
 Route::resource('transferencias', 'TransferenciaController')->middleware('auth');
-
 
 Route::resource('depositos', 'DepositoController')->middleware('auth');
 
 Route::resource('stocks', 'StockController')->middleware('auth');
-
 
 Route::resource('categorias', 'CategoriaController');
 

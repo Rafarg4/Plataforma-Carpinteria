@@ -3,57 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>SIS Carpinteria</title>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
-    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.3/js/adminlte.min.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.2/icheck.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
-     <!-- Datatables -->
-     <link href="{{ asset('css/datatable.css') }}"  rel="stylesheet">
-     <script type="text/javascript" src="{{ asset('js/datatable.js') }}"></script>
-     <link href="{{ asset('css/buttons.css') }}"  rel="stylesheet">
-
-     <script type="text/javascript" src="{{ asset('js/buttons.js') }}"></script>
-
-     <script type="text/javascript" src="{{ asset('js/flashexport.js') }}"></script>
-
-     <script type="text/javascript" src="{{ asset('js/jszip.js') }}"></script>
-
-     <script type="text/javascript" src="{{ asset('js/pdfmake.js') }}"></script>
-
-     <script type="text/javascript" src="{{ asset('js/pdffont.js') }}"></script>
-
-     <script type="text/javascript" src="{{ asset('js/html5.js') }}"></script>
-
-     <script type="text/javascript" src="{{ asset('js/print.js') }}"></script>
-
-    @yield('scripts')
-     <script>
-$(document).ready(function() {
-    $('#data-table').DataTable( {
-        "language": {
-            "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
-        },
-        dom: 'Bfrtip',
-        buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
-        ]
-    } );
-} );
-        </script>
-    @stack('scripts')
-
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 
     <!-- Bootstrap 3.3.7 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css">
+    
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -197,6 +152,50 @@ $(document).ready(function() {
     @endif
 
     <!-- jQuery 3.1.1 -->
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.3/js/adminlte.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.2/icheck.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
+
+     <!-- Datatables -->
+     <link href="{{ asset('css/datatable.css') }}"  rel="stylesheet">
+     <script type="text/javascript" src="{{ asset('js/datatable.js') }}"></script>
+     <link href="{{ asset('css/buttons.css') }}"  rel="stylesheet">
+
+     <script type="text/javascript" src="{{ asset('js/buttons.js') }}"></script>
+
+     <script type="text/javascript" src="{{ asset('js/flashexport.js') }}"></script>
+
+     <script type="text/javascript" src="{{ asset('js/jszip.js') }}"></script>
+
+     <script type="text/javascript" src="{{ asset('js/pdfmake.js') }}"></script>
+
+     <script type="text/javascript" src="{{ asset('js/pdffont.js') }}"></script>
+
+     <script type="text/javascript" src="{{ asset('js/html5.js') }}"></script>
+
+     <script type="text/javascript" src="{{ asset('js/print.js') }}"></script>
+
+    @yield('scripts')
+     <script>
+$(document).ready(function() {
+    $('#data-table').DataTable( {
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+        },
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
+} );
+        </script>
+    @stack('scripts')
 </body>
 </html>
