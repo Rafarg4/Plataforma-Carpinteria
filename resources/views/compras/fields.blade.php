@@ -37,6 +37,11 @@
     {!! Form::label('comp_iva', 'Iva:') !!}
     {!! Form::text('comp_iva', null, ['class' => 'form-control']) !!}
 </div>
+<!-- Comp Iva Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('comp_iva', 'Cantidad:') !!}
+    {!! Form::text('comp_iva', null, ['class' => 'form-control']) !!}
+</div>
 <!-- Tabla de los articulos agregados para la compra -->
     <div class="col-md-12">
         <table id="detalles" class="table table-striped table-bordered table-hover table-condensed" style="margin-top: 10px">
