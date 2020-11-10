@@ -1,8 +1,8 @@
  <div class="table-responsive">
-    <table class="table" id="data-table">
+    <table class="table table-bordered" id="data-table">
         <thead>
             <tr>
-                <th>NOMBRE</th>
+                <th>NOMBRE Y APELLIDO</th>
                 <th>CORREO</th>
                 <th>ACCION</th>
             </tr>

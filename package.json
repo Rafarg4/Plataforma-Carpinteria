@@ -20,5 +20,10 @@
         "resolve-url-loader": "^3.1.0",
         "sass": "^1.15.2",
         "sass-loader": "^8.0.0"
+    },
+    "dependencies": {
+        "datatables.net-buttons-jqui": "^1.6.4",
+        "jszip": "^3.5.0",
+        "pdfmake": "^0.1.68"
     }
 }

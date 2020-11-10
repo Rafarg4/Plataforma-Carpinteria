@@ -167,6 +167,4 @@ class UserController extends AppBaseController
 
         return redirect(route('users.index'));
     }
-
-
 }
