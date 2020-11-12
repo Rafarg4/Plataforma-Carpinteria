@@ -29,6 +29,22 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
+                <h3>CLIENTES</h3>
+               
+                <p>CLIENTES</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-clone"></i>
+              </div>
+              <a href="{{ route('clientes.index') }}" class="small-box-footer">Mas informacion <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+
+          <div class="col-lg-4 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
                 <h3>DEPOSITO</h3>
 
                 <p>DEPOSITO</p>
