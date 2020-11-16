@@ -48,6 +48,7 @@ class ClienteController extends Controller
 
         $clientes->save();
         return redirect(route('clientes.index'));
+        
     }
 
     /**
@@ -69,8 +70,10 @@ class ClienteController extends Controller
      */
     public function edit($id)
     {
-        //
-        return view('cliente.edit', ['cliente' => Cliente::findOrFail($id)]);
+
+        $cliente= Cliente::findOrFail($id);
+        
+        return view('cliente.edit', compact('cliente'));
     }
 
     /**
@@ -80,10 +83,21 @@ class ClienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    
     public function update(Request $request, $id)
-    {
-        //
-    }
+        {
+            $clientes = Cliente::find($id);
+    
+            $clientes->clientes_nombre = request( 'clientes_nombre'); //envia
+            $clientes->clientes_ruc = request( 'clientes_ruc'); //envia
+            $clientes->clientes_telefono = request( 'clientes_telefono'); //envia
+            $clientes->clientes_direccion = request( 'clientes_direccion'); //envia
+            $clientes->clientes_email = request( 'clientes_email'); //envia
+    
+            $clientes->update();
+            return redirect(route('clientes.index'));
+
+        }
 
     /**
      * Remove the specified resource from storage.
