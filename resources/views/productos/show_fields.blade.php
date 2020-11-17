@@ -6,13 +6,13 @@
 
 <!-- Descripcion Producto Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('descripcion_producto', 'DESCRIPCION PRODUCTO:') !!}
+    {!! Form::label('descripcion_producto', 'DESCRIPCIÓN PRODUCTO:') !!}
     <p>{{ $producto->descripcion_producto }}</p>
 </div>
 
 <!-- Categoria Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('categoria_id', 'CATEGORIA:') !!}
+    {!! Form::label('categoria_id', 'CATEGORÍA:') !!}
     <p>{{ $producto->categoria->nombre_categoria  }}</p>
 </div>
 

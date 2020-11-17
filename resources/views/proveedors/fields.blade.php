@@ -12,13 +12,13 @@
 
 <!-- Direccion Proveedor Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('direccion_proveedor', 'DIRECCION:') !!}
+    {!! Form::label('direccion_proveedor', 'DIRECCIÓN:') !!}
     {!! Form::text('direccion_proveedor', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Telefono Proveedor Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('telefono_proveedor', 'TELEFONO:') !!}
+    {!! Form::label('telefono_proveedor', 'TELÉFONO:') !!}
     {!! Form::text('telefono_proveedor', null, ['class' => 'form-control']) !!}
 </div>
 
@@ -30,7 +30,7 @@
 
 <!-- Descripcion Proveedor Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('descripcion_proveedor', 'DESCRIPCION:') !!}
+    {!! Form::label('descripcion_proveedor', 'DESCRIPCIÓN:') !!}
     {!! Form::text('descripcion_proveedor', null, ['class' => 'form-control']) !!}
 </div>
 

@@ -2,9 +2,9 @@
     <table class="table" id="pedidos-table">
         <thead>
             <tr>
-                <th>Cliente</th>
-        <th>Fecha Inicio</th>
-        <th>Fecha Entrega</th>
+                <th>CLIENTE</th>
+        <th>FECHA DE INICIO</th>
+        <th>FECHA DE ENTREGA</th>
                 <th colspan="3">Action</th>
             </tr>
         </thead>
@@ -19,7 +19,7 @@
                     <div class='btn-group'>
                         <a href="{{ route('pedidos.show', [$pedido->id]) }}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
                         <a href="{{ route('pedidos.edit', [$pedido->id]) }}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
-                        {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                        {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('ESTAS SEGURO?')"]) !!}
                     </div>
                     {!! Form::close() !!}
                 </td>

@@ -3,10 +3,10 @@
         <thead>
             <tr>
                 <th>CANTIDAD</th>
-        <th>DEPOSITO ORIGEN</th>
-        <th>DEPOSITO DESTINO</th>
+        <th>DEPÓSITO ORIGEN</th>
+        <th>DEPÓSITO DESTINO</th>
         <th>PRODUCTO</th>
-                <th>ACCION</th>
+                <th>ACCIÓN</th>
             </tr>
         </thead>
         <tbody>

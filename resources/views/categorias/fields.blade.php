@@ -6,7 +6,7 @@
 
 <!-- Descripcion Categoria Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('descripcion_categoria', 'DESCRIPCION:') !!}
+    {!! Form::label('descripcion_categoria', 'DESCRIPCIÓN:') !!}
     {!! Form::text('descripcion_categoria', null, ['class' => 'form-control']) !!}
 </div>
 

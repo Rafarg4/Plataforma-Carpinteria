@@ -6,13 +6,13 @@
 
 <!-- Descripcion Producto Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('descripcion_producto', 'DESCRIPCION PRODUCTO:') !!}
+    {!! Form::label('descripcion_producto', 'DESCRIPCIÓN PRODUCTO:') !!}
     {!! Form::text('descripcion_producto', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Categoria Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('categoria_id', 'CATEGORIA:') !!}
+    {!! Form::label('categoria_id', 'CATEGORÍA:') !!}
     {!! Form::select('categoria_id', $categorias, null, ['required', 'class' => 'form-control','placeholder'=>'Seleccione'])!!}
 </div>
 

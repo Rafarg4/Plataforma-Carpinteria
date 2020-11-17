@@ -1,6 +1,6 @@
 <!-- Descripcion Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('descripcion', 'DESCRIPCION:') !!}
+    {!! Form::label('descripcion', 'DESCRIPCIÓN:') !!}
     <p>{{ $deposito->descripcion }}</p>
 </div>
 

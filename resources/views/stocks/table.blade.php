@@ -2,10 +2,10 @@
     <table class="table" id="data-table">
         <thead>
             <tr>
-                <th>DEPOSITO ID</th>
+                <th>DEPÓSITO ID</th>
         <th>PRODUCTO</th>
         <th>CANTIDAD</th>
-                <th>ACCION</th>
+                <th>ACCIÓN</th>
             </tr>
         </thead>
         <tbody>

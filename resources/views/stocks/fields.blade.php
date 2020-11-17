@@ -1,6 +1,6 @@
 <!-- Deposito Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('deposito_id', 'DEPOSITO ID:') !!}
+    {!! Form::label('deposito_id', 'DEPÓSITO ID:') !!}
     {!! Form::select('deposito_id', $depositos, null, ['required', 'class' => 'form-control','placeholder'=>'Seleccione'])!!}
 </div>
 
@@ -17,7 +17,7 @@
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
-    {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
+    {!! Form::submit('GUARDAR', ['class' => 'btn btn-primary']) !!}
     <a href="{{ route('stocks.index') }}" class="btn btn-default">CANCELAR</a>
 </div>
 

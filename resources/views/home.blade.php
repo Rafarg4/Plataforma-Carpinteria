@@ -12,14 +12,14 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>DEPOSITO</h3>
+                <h3>DEPÓSITO</h3>
 
-                <p>DEPOSITO</p>
+                <p>DEPÓSITO</p>
               </div>
               <div class="icon">
                 <i class="fa fa-clone"></i>
               </div>
-              <a href="{{ route('depositos.index') }}" class="small-box-footer">MAS INFORMACION<i class="fa fa-arrow-circle-right"></i></a>
+              <a href="{{ route('depositos.index') }}" class="small-box-footer">MÁS INFORMACIÓN<i class="fa fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -33,7 +33,7 @@
               <div class="icon">
                 <i class="fa fa-book"></i>
               </div>
-              <a href="{{ route('stocks.index') }}" class="small-box-footer">MAS INFORMACION<i class="fa fa-arrow-circle-right"></i></a>
+              <a href="{{ route('stocks.index') }}" class="small-box-footer">MÁS INFORMACIÓN<i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
              <!-- ./col -->
@@ -48,7 +48,7 @@
               <div class="icon">
                <i class="fa fa-user"></i>
               </div>
-              <a href="{{ route('users.index') }}" class="small-box-footer">MAS INFORMACION<i class="fa fa-arrow-circle-right"></i></a>
+              <a href="{{ route('users.index') }}" class="small-box-footer">MÁS INFORMACIÓN<i class="fa fa-arrow-circle-right"></i></a>
             </div>
           </div>
            <!-- ./col -->
@@ -63,7 +63,7 @@
               <div class="icon">
                <i class="fa fa-clipboard"></i>
               </div>
-              <a href="{{ route('transferencias.index') }}" class="small-box-footer">MAS INFORMACION<i class="fa fa-arrow-circle-right"></i></a>
+              <a href="{{ route('transferencias.index') }}" class="small-box-footer">MÁS INFORMACIÓN<i class="fa fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -78,7 +78,7 @@
               <div class="icon">
                <i class="fa fa-archive"></i>
               </div>
-              <a href="{{ route('productos.index') }}" class="small-box-footer">MAS INFORMACION<i class="fa fa-arrow-circle-right"></i></a>
+              <a href="{{ route('productos.index') }}" class="small-box-footer">MÁS INFORMACIÓN<i class="fa fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -86,17 +86,32 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>CATEGORIA</h3>
+                <h3>CATEGORÍA</h3>
 
-                <p>CATEGORIA</p>
+                <p>CATEGORÍA</p>
               </div>
               <div class="icon">
             <i class="fa fa-edit"></i>
               </div>
-              <a href="{{ route('categorias.index') }}" class="small-box-footer">MAS INFORMACION<i class="fa fa-arrow-circle-right"></i></a>
+              <a href="{{ route('categorias.index') }}" class="small-box-footer">MÁS INFORMACIÓN<i class="fa fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
+
+          <div class="col-lg-4 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>PEDIDOS</h3>
+
+                <p>PEDIDOS</p>
+              </div>
+              <div class="icon">
+            <i class="fa fa-edit"></i>
+              </div>
+              <a href="{{ route('pedidos.index') }}" class="small-box-footer">MÁS INFORMACIÓN<i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
           <div class="col-lg-4 col-6">
             <!-- small box -->
             <div class="small-box bg-danger">
@@ -108,7 +123,7 @@
               <div class="icon">
              <i class="fa fa-truck"></i>
               </div>
-              <a href="{{ route('proveedors.index') }}" class="small-box-footer">MAS INFORMACION<i class="fa fa-arrow-circle-right"></i></a>
+              <a href="{{ route('proveedors.index') }}" class="small-box-footer">MÁS INFORMACIÓN<i class="fa fa-arrow-circle-right"></i></a>
             </div>
           </div>
           </div>

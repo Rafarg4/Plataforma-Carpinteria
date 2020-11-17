@@ -3,8 +3,8 @@
         <thead>
             <tr>
                 <th>NOMBRE</th>
-        <th>DESCRIPCION</th>
-                <th>ACCION</th>
+        <th>DESCRIPCIÓN</th>
+                <th>ACCIÓN</th>
             </tr>
         </thead>
         <tbody>

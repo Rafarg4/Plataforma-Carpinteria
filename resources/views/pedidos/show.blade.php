@@ -11,7 +11,7 @@
             <div class="box-body">
                 <div class="row" style="padding-left: 20px">
                     @include('pedidos.show_fields')
-                    <a href="{{ route('pedidos.index') }}" class="btn btn-default">Back</a>
+                    <a href="{{ route('pedidos.index') }}" class="btn btn-default">Atras</a>
                 </div>
             </div>
         </div>

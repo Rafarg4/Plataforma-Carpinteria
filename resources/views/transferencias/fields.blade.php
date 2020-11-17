@@ -6,13 +6,13 @@
 
 <!-- Origne Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('origne_id', 'DEPOSITO OREGEN:') !!}
+    {!! Form::label('origne_id', 'DEPÓSITO ORIGEN:') !!}
     {!! Form::select('origne_id', $depositos, null, ['required', 'class' => 'form-control','placeholder'=>'Seleccione'])!!}
 </div>
 
 <!-- Destino Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('destino_id', 'DEPOSITO DESTINO:') !!}
+    {!! Form::label('destino_id', 'DEPÓSITO DESTINO:') !!}
     {!! Form::select('destino_id', $depositos, null, ['required', 'class' => 'form-control','placeholder'=>'Seleccione'])!!}
 </div>
 
