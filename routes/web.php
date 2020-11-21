@@ -47,3 +47,5 @@ Route::resource('productos', 'ProductoController');
 
 
 Route::resource('pedidos', 'PedidoController');
+
+Route::resource('produccions', 'ProduccionController');

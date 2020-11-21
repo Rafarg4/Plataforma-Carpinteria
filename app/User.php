@@ -41,4 +41,7 @@ class User extends Authenticatable
         'email' => 'required',
         'password' => 'required|min:5'
          ];
+         public function produccion (){
+                 return $this-> HasMany('App\Models\Produccion');
+             }
 }

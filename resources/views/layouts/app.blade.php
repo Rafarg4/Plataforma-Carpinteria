@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <title>SIS Carpinteria</title>
 
+
+
+
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -46,7 +51,17 @@ $(document).ready(function() {
         ]
     } );
 } );
+
         </script>
+
+        <script type="text/javascript">
+              $(function () {
+                  $('.datepicker').datetimepicker({
+
+                           });
+              });
+           </script>
+
     @stack('scripts')
 
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
@@ -69,6 +84,8 @@ $(document).ready(function() {
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
+
+
 
     @yield('css')
 </head>
@@ -145,7 +162,7 @@ $(document).ready(function() {
 
         <!-- Main Footer -->
         <footer class="main-footer" style="max-height: 100px;text-align: center">
-            <strong>Copyright © 2020 <a href="#">Team Blue</a>.</strong> 
+            <strong>Copyright © 2020 <a href="#">Team Blue</a>.</strong>
         </footer>
 
     </div>
@@ -179,7 +196,7 @@ $(document).ready(function() {
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     <li><a href="{{ url('/login') }}">LOGIN</a></li>
-                
+
                 </ul>
             </div>
         </div>
@@ -197,6 +214,6 @@ $(document).ready(function() {
     @endif
 
     <!-- jQuery 3.1.1 -->
-    
+
 </body>
 </html>
