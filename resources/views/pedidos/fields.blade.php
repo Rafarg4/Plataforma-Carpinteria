@@ -7,13 +7,13 @@
 <!-- Fecha Inicio Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('fecha_inicio', 'Fecha Inicio:') !!}
-    {!! Form::text('fecha_inicio', null, ['class' => 'form-control']) !!}
+    {!! Form::date('fecha_inicio', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Fecha Entrega Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('fecha_entrega', 'Fecha Entrega:') !!}
-    {!! Form::text('fecha_entrega', null, ['class' => 'form-control']) !!}
+    {!! Form::date('fecha_entrega', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->

@@ -44,8 +44,8 @@ class Produccion extends Model
     protected $casts = [
         'id' => 'integer',
         'pedido_id' => 'integer',
-        'fecha_inicio' => 'date',
-        'fecha_culminacion' => 'date',
+        'fecha_inicio' => 'text',
+        'fecha_culminacion' => 'text',
 
         'estado' => 'string',
         'user_id'=> 'integer'
