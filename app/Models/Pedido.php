@@ -19,7 +19,7 @@ class Pedido extends Model
     use SoftDeletes;
 
     public $table = 'pedidos';
-    
+
 
     protected $dates = ['deleted_at'];
 
@@ -54,5 +54,9 @@ class Pedido extends Model
         'fecha_entrega' => 'required'
     ];
 
-    
+    public function produccion (){
+        return $this-> hasMany('App\Models\Produccion');
+    }
+
+
 }

@@ -28,3 +28,7 @@
     <a href="{{ route('pedidos.index') }}"><i class="fa fa-edit"></i><span>Pedidos</span></a>
 </li>
 
+<li class="{{ Request::is('produccions*') ? 'active' : '' }}">
+    <a href="{{ route('produccions.index') }}"><i class="fa fa-edit"></i><span>Produccions</span></a>
+</li>
+
