@@ -17,7 +17,7 @@ class CreateComprasTable extends Migration
         Schema::create('compras', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('proveedor_id')->unsigned();
-            $table->integer('user_id')->unsigned();
+            $table->BigInteger('user_id')->unsigned();
             $table->integer('producto_id')->unsigned();
             $table->date('comp_fecha');
             $table->text('comp_numero');
@@ -30,6 +30,7 @@ class CreateComprasTable extends Migration
             $table->softDeletes();
             $table->foreign('proveedor_id')->references('id')->on('proveedors');
             $table->foreign('producto_id')->references('id')->on('productos');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
