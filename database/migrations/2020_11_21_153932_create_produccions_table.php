@@ -18,9 +18,8 @@ class CreateProduccionsTable extends Migration
             $table->increments('id');
             $table->integer('pedido_id')->unsigned();
             $table->BigInteger('user_id')->unsigned();
-            $table->date('fecha_inicio');
-            $table->date('fecha_culminacion');
-            
+            $table->text('fecha_inicio');
+            $table->text('fecha_culminacion');
             $table->text('estado');
             $table->timestamps();
             $table->softDeletes();

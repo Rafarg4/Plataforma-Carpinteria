@@ -39,8 +39,8 @@ class Pedido extends Model
     protected $casts = [
         'id' => 'integer',
         'cliente' => 'string',
-        'fecha_inicio' => 'date',
-        'fecha_entrega' => 'date'
+        'fecha_inicio' => 'text',
+        'fecha_entrega' => 'text'
     ];
 
     /**

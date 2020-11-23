@@ -1,3 +1,4 @@
+
 <div class="table-responsive">
     <table class="table" id="produccions-table">
         <thead>
@@ -7,17 +8,27 @@
         <th>Fecha Culminacion</th>
         <th>Responsable</th>
         <th>Estado</th>
-                <th colspan="3">Action</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
         @foreach($produccions as $produccion)
             <tr>
-                <td>{{ $produccion->pedido->cliente }}</td>
+            <td>{{ $produccion->pedido->cliente }}</td>
             <td>{{ $produccion->fecha_inicio }}</td>
             <td>{{ $produccion->fecha_culminacion }}</td>
             <td>{{ $produccion->user->name }}</td>
-            <td>{{ $produccion->estado }}</td>
+            <td>@switch(true)
+            @case($produccion->estado == 'pendiente')
+            <button class="btn btn-warning btn-xs"> {{ $produccion->estado }} </button>
+            @break
+            @case($produccion->estado == 'en proceso')
+            <button class="btn btn-primary btn-xs"> {{ $produccion->estado }} </button>
+            @break
+            @case($produccion->estado == 'terminado' )
+           <button class="btn btn-success btn-xs">  {{ $produccion->estado }} </button>
+            @break
+            @endswitch</td>
                 <td>
                     {!! Form::open(['route' => ['produccions.destroy', $produccion->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

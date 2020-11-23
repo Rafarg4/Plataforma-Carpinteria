@@ -1,5 +1,3 @@
-
-
 <!-- Pedido Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('pedido_id', 'Pedido Id:') !!}
@@ -9,22 +7,14 @@
 <!-- Fecha Inicio Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('fecha_inicio', 'Fecha Inicio:') !!}
-    {!! Form::text('fecha_inicio', null, ['class' => 'form-control','id'=>'fecha_inicio']) !!}
+    {!! Form::date('fecha_inicio', null, ['class' => 'form-control','id'=>'fecha_inicio']) !!}
 </div>
-
-
-
-
-
 
 <!-- Fecha Culminacion Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('fecha_culminacion', 'Fecha Culminacion:') !!}
-    {!! Form::text('fecha_culminacion', null, ['class' => 'form-control','id'=>'fecha_culminacion']) !!}
+    {!! Form::date('fecha_culminacion', null, ['class' => 'form-control','id'=>'fecha_culminacion']) !!}
 </div>
-
-
-
 
 <!-- Responsable Field -->
 <div class="form-group col-sm-6">

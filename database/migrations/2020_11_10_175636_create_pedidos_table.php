@@ -17,8 +17,8 @@ class CreatePedidosTable extends Migration
         Schema::create('pedidos', function (Blueprint $table) {
             $table->increments('id');
             $table->text('cliente');
-            $table->date('fecha_inicio');
-            $table->date('fecha_entrega');
+            $table->text('fecha_inicio');
+            $table->text('fecha_entrega');
             $table->timestamps();
             $table->softDeletes();
         });
