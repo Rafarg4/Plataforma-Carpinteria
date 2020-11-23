@@ -4,7 +4,7 @@
             <tr>
                 <th>NOMBRE Y APELLIDO</th>
                 <th>CORREO</th>
-                <th>ACCION</th>
+                <th>ACCIÓN</th>
             </tr>
         </thead>
         <tbody>

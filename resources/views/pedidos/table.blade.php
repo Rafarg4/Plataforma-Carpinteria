@@ -5,7 +5,7 @@
                 <th>CLIENTE</th>
         <th>FECHA DE INICIO</th>
         <th>FECHA DE ENTREGA</th>
-                <th colspan="3">Action</th>
+                <th colspan="3">ACCIÓN</th>
             </tr>
         </thead>
         <tbody>
