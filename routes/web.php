@@ -42,6 +42,7 @@ Route::resource('proveedors', 'ProveedorController');
 
 Route::resource('productos', 'ProductoController');
 
+Route::resource('detalles', 'DetalleController');
 
 
 

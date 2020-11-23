@@ -81,6 +81,23 @@
               <a href="{{ route('productos.index') }}" class="small-box-footer">MÁS INFORMACIÓN<i class="fa fa-arrow-circle-right"></i></a>
             </div>
           </div>
+
+<!-- ./col -->
+          <div class="col-lg-4 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3>DETALLE PED.</h3>
+
+                <p>DETALLE PED.</p>
+              </div>
+              <div class="icon">
+               <i class="fa fa-archive"></i>
+              </div>
+              <a href="{{ route('detalles.index') }}" class="small-box-footer">MÁS INFORMACIÓN<i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+
           <!-- ./col -->
           <div class="col-lg-4 col-6">
             <!-- small box -->
