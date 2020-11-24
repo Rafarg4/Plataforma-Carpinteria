@@ -59,8 +59,11 @@ class ClienteController extends Controller
      */
     public function show($id)
     {
-        //
-    }
+    
+        return view('cliente.show', 
+          ['cliente' => cliente::findOrFail($id)]);
+       
+      }
 
     /**
      * Show the form for editing the specified resource.
