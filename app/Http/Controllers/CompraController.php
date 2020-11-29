@@ -9,10 +9,12 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
-use App\Models\Producto;
+use App\articulo;
+use App\Models\Compra;
 use App\Models\Proveedor;
 use App\User;
-
+use function GuzzleHttp\Promise\all;
+use App\Models\Compra_detalle;
 class CompraController extends AppBaseController
 {
     /** @var  CompraRepository */
@@ -46,7 +48,7 @@ class CompraController extends AppBaseController
     public function create()
     {
        $proveedors = Proveedor::pluck('nombre_proveedor','id');
-       $productos = Producto::pluck('nombre_producto','id');
+       $productos = articulo::all();
        $users = User::pluck('name','id');
         return view('compras.create',compact(
             'proveedors','productos','users'));
@@ -60,15 +62,50 @@ class CompraController extends AppBaseController
      * @return Response
      */
     public function store(CreateCompraRequest $request)
-    {
-        $input = $request->all();
+     {
+        $compras = new Compra();
 
-        $compra = $this->compraRepository->create($input);
+        $compras->proveedor_id = request( 'proveedor_id'); //envia
+        $compras->user_id = request( 'user_id'); //envia
+        $compras->comp_fecha = request( 'comp_fecha'); //envia
+        $compras->comp_numero = request( 'comp_numero'); //envia
+        $compras->comp_tipo = request( 'comp_tipo'); //envia
+        $compras->comp_iva = request( 'comp_iva'); //envia
+        $compras->comp_ivacinco = request( 'comp_ivacinco'); //envia
+       $compras->comp_ivadiez = request( 'comp_ivadiez'); //envia
+             
+        $compras->comp_totalfactura = request( 'comp_totalfactura');
 
-        Flash::success('Compra saved successfully.');
+        $compras->save();
+
+            //Artículos array()
+            //Tabla venta_detalle
+            $articulo_id = $request->get('articulo_id'); //array()
+            $cdet_cantidad = $request->get('cdet_cantidad');
+
+
+            //Recorre los detalles de compras
+            $cont = 0;
+
+            while($cont < count($articulo_id))
+            {
+                $detalle = new Compra_detalle;
+                //$venta->id del venta que recien se guardo 
+                $detalle->compra_id = $compras->id;
+                //id_articulo de la posición cero
+                $detalle->articulo_id = $articulo_id[$cont]; //envia
+                $detalle->cdet_cantidad = $cdet_cantidad[$cont]; //envia
+                
+                $detalle->save();
+
+                $cont = $cont + 1;
+            }
 
         return redirect(route('compras.index'));
+
+
     }
+
 
     /**
      * Display the specified Compra.
@@ -101,7 +138,7 @@ class CompraController extends AppBaseController
     {
         $compra = $this->compraRepository->find($id);
         $proveedors = Proveedor::pluck('nombre_proveedor','id');
-        $productos = Producto::pluck('nombre_producto','id');
+        $productos = articulo::pluck('articulos_descripcion','id');
         $users = User::pluck('name','id');
 
         if (empty($compra)) {

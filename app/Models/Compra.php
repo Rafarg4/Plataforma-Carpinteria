@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  *
  * @property integer $proveedor_id
  * @property integer $user_id
- * @property integer $producto_id
+ * @property integer $articulo_id
  * @property string $comp_fecha
  * @property string $comp_numero
  * @property string $comp_tipo
@@ -35,7 +35,7 @@ class Compra extends Model
     public $fillable = [
         'proveedor_id',
         'user_id',
-        'producto_id',
+        'articulo_id',
         'comp_fecha',
         'comp_numero',
         'comp_tipo',
@@ -54,7 +54,7 @@ class Compra extends Model
         'id' => 'integer',
         'proveedor_id' => 'integer',
         'user_id' => 'integer',
-        'producto_id' => 'integer',
+        'articulo_id' => 'integer',
         'comp_fecha' => 'date',
         'comp_numero' => 'string',
         'comp_tipo' => 'string',
@@ -70,17 +70,15 @@ class Compra extends Model
      * @var array
      */
     public static $rules = [
-        'proveedor_id' => 'required',
-        'user_id' => 'required',
-        'producto_id' => 'required',
-        'comp_fecha' => 'required',
-        'comp_numero' => 'required',
-        'comp_tipo' => 'required',
-        'comp_iva' => 'required',
-        'comp_totalfactura' => 'required',
-        'comp_ivacinco' => 'required',
-        'comp_ivadiez' => 'required'
+       
     ];
+public function proveedor (){
+        return $this-> belongsTo('App\Models\Proveedor');
+    }
+    public function user (){
+        return $this-> belongsTo('App\User');
+    }
 
+        
     
 }

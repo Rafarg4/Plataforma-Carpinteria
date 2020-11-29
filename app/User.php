@@ -51,6 +51,11 @@ class user extends Authenticatable
           public function ventas(){
              return $this->hasMany('App\venta');
          }
+           public function compra(){
+             return $this->hasMany('App\Models\Compra');
+         }
+    
+
         
 
 }

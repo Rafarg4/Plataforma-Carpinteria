@@ -1,7 +1,8 @@
 <?php
-namespace App;
-use App\Compra;
-use Illuminate\Database\Eloquent\Model;
+namespace App\Models;
+
+use Eloquent as Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Compra_detalle extends Model
 {
@@ -17,7 +18,8 @@ class Compra_detalle extends Model
     public function compra(){
             return $this->belongsTo('App\Models\Compra');
      }
-     public function compra_detalle(){
-     return $this->hasMany('App\Models\Compra_detalle');}
+    public function articulo(){
+            return $this->belongsTo('App\articulo');
+        }
    
 }

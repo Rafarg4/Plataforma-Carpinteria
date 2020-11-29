@@ -5,6 +5,7 @@
                 <th>NOMBRE PRODUCTO</th>
         <th>DESCRIPCIÓN PRODUCTO</th>
         <th>CATEGORIA ID</th>
+         <th>PRECIO</th>
                 <th>ACCIÓN</th>
             </tr>
         </thead>
@@ -14,6 +15,7 @@
                 <td>{{ $producto->nombre_producto }}</td>
             <td>{{ $producto->descripcion_producto }}</td>
             <td>{{ $producto->categoria->nombre_categoria }}</td>
+            <td>{{ $producto->precio }}</td>
                 <td>
                     {!! Form::open(['route' => ['productos.destroy', $producto->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

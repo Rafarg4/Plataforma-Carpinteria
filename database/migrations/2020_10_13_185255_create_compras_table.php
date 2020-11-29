@@ -18,18 +18,16 @@ class CreateComprasTable extends Migration
             $table->increments('id');
             $table->integer('proveedor_id')->unsigned();
             $table->BigInteger('user_id')->unsigned();
-            $table->integer('producto_id')->unsigned();
             $table->date('comp_fecha');
             $table->text('comp_numero');
             $table->text('comp_tipo');
-            $table->text('comp_iva');
+            $table->text('comp_iva')->nullable();
             $table->text('comp_totalfactura');
             $table->text('comp_ivacinco');
             $table->text('comp_ivadiez');
             $table->timestamps();
             $table->softDeletes();
             $table->foreign('proveedor_id')->references('id')->on('proveedors');
-            $table->foreign('producto_id')->references('id')->on('productos');
             $table->foreign('user_id')->references('id')->on('users');
         });
     }

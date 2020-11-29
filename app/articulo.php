@@ -13,5 +13,8 @@ class articulo extends Model
          public function venta_detalle(){
             return $this->hasMany('App\venta_detalle');
         } 
+         public function compra_detalle(){
+            return $this->hasMany('App\Models\Compra_detalle');
+        } 
         
 }

@@ -19,7 +19,7 @@ class CompraRepository extends BaseRepository
     protected $fieldSearchable = [
         'proveedor_id',
         'user_id',
-        'producto_id',
+        'articulo_id',
         'comp_fecha',
         'comp_numero',
         'comp_tipo',
