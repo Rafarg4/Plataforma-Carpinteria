@@ -15,6 +15,7 @@ use App\Models\Proveedor;
 use App\User;
 use function GuzzleHttp\Promise\all;
 use App\Models\Compra_detalle;
+use PDF;
 class CompraController extends AppBaseController
 {
     /** @var  CompraRepository */
@@ -116,17 +117,12 @@ class CompraController extends AppBaseController
      */
     public function show($id)
     {
-        $compra = $this->compraRepository->find($id);
-
-        if (empty($compra)) {
-            Flash::error('Compra not found');
-
-            return redirect(route('compras.index'));
-        }
-
-        return view('compras.show')->with('compra', $compra);
+    
+      return view('compras.show', 
+        ['compra' => Compra::findOrFail($id)], 
+        ['detalle' => Compra_detalle::all() ]);
+     
     }
-
     /**
      * Show the form for editing the specified Compra.
      *
@@ -199,5 +195,14 @@ class CompraController extends AppBaseController
         Flash::success('Compra deleted successfully.');
 
         return redirect(route('compras.index'));
+    }
+     public function pdf($id)
+    {
+        
+      $pdf = PDF::loadView('compras.pdf', 
+        ['compra' => Compra::findOrFail($id)], 
+        ['detalle' => Compra_detalle::all() ]);
+
+      return $pdf->stream('compras.pdf');
     }
 }

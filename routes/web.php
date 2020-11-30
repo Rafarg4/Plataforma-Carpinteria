@@ -24,6 +24,7 @@ Route::resource('users', 'UserController')->middleware('auth');
 Route::resource('venta', 'VentaController')->names('ventas')->middleware('auth');
 
 Route::get('/venta/pdf/{id}', 'VentaController@pdf')->name('pdf');
+Route::get('/compras/pdf/{id}', 'CompraController@pdf')->name('pdf');
 Route::resource('cliente', 'ClienteController')->names('clientes')->middleware('auth');
 
 Route::resource('transferencias', 'TransferenciaController')->middleware('auth');
