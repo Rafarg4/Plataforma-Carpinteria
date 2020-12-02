@@ -2,20 +2,22 @@
     <table class="table" id="data-table">
         <thead>
             <tr>
-                <th>Proveedor</th>
-        <th>Vendedro</th>
+         <th>ID</th>
+        <th>PROVEEDOR</th>
+        <th>VENDEDOR</th>
         <th>FECHA DE COMPRA</th>
         <th>NUMERO DE COMPRA</th>
         <th>TIPO DE COMPRA</th>
         <th>IVA 5%</th>
         <th>IVA 10%</th>
         <th>TOTAL DE FACTURA</th>
-                <th>Accion</th>
+                <th>ACCION</th>
             </tr>
         </thead>
         <tbody>
         @foreach($compras as $compra)
             <tr>
+            <td>{{ $compra->id }}</td>
             <td>{{ $compra->proveedor->nombre_proveedor }}</td>
             <td>{{ $compra->user->name }}</td>
             <td>{{ $compra->comp_fecha }}</td>

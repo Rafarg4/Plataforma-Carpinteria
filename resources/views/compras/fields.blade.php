@@ -1,11 +1,11 @@
 <!-- Cliente Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('proveedor_id', 'Proveedor:') !!}
+    {!! Form::label('proveedor_id', 'PROVEEDOR:') !!}
     {!! Form::select('proveedor_id', $proveedors, null, ['required', 'class' => 'form-control','placeholder'=>'Seleccione']) !!}
 </div>
 <!-- User Id Field -->
 <div class="form-group col-sm-6">
-            <label for="user_id">Vendedor</label>
+            <label for="user_id">VENDEDOR</label>
             <input type="hidden" name="user_id" class="form-control" value="{{ Auth::user()->id }}"  placeholder="{{ Auth::user()->name }}" readonly >
             <input type="text"  class="form-control" value="{{ Auth::user()->name }}"  placeholder="{{ Auth::user()->name }}" readonly >
 
@@ -14,7 +14,7 @@
 <!-- agregar articulos -->
     <div class="col-md-6">
         <div class="form-group precio iva">
-            <label for="producto_id">Artículo</label>
+            <label for="producto_id">ARTICULO</label>
             <select name="articulo_descripcion" id="articulo_descripcion" class="form-control selectpicker" data-live-search="true">
                 <option disabled selected>Selecciona un artículo</option>
                 @foreach($productos as $art)
@@ -27,49 +27,49 @@
     </div>
   <!-- Comp Numero Field -->
 <div class="form-group col-sm-6">
-            <label for="articulos_precio"> Precio</label>
+            <label for="articulos_precio"> PRECIO</label>
             <input type="text" class="form-control precio" readonly name="articulos_precio" id="articulos_precio" value="" >
         </div>
 <!-- Comp Fecha Field -->
         <div class="form-group col-sm-6">
-            <label for="comp_fecha">Fecha</label>
+            <label for="comp_fecha">FECHA DE COMPRA</label>
             <input type="date" name="comp_fecha" class="form-control" value="{{ old('comp_fecha',  Carbon\Carbon::today()->format('Y-m-d')) }}"readonly>
         </div>
 <!-- Comp Numero Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('comp_numero', ' Numero de compra:') !!}
+    {!! Form::label('comp_numero', ' NUMERO DE COMPRA:') !!}
     {!! Form::text('comp_numero', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Comp Tipo Field -->
 <div class="form-group col-sm-6 pull-left">
-    {!! Form::label('comp_tipo', 'Tipo de pago:') !!}
+    {!! Form::label('comp_tipo', 'TIPO DE PAGO:') !!}
    {!! Form::select('comp_tipo',array('contado' => 'contado', 'credito' => 'credito'),null, ['required', 'class' => 'form-control','placeholder'=>'Seleccione'])!!}
 </div>
 
 <!-- Comp Iva Field -->
 <div class="form-group col-sm-6">
-            <label for="articulos_iva"> Iva Artículo</label>
+            <label for="articulos_iva"> IVA ARTICULO</label>
             <input type="text" class="form-control iva" readonly name="articulos_iva" id="articulos_iva"  >
         </div>
 <!-- Comp Iva Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('cdet_cantidad', 'Cantidad:') !!}
+    {!! Form::label('cdet_cantidad', 'CANTIDAD:') !!}
     {!! Form::text('cdet_cantidad', null, ['class' => 'form-control']) !!}
 </div>
 <div class="form-group col-sm-6">
-            <button type="button" id="bt_add" class="btn btn-primary">Agregar</button>
+            <button type="button" id="bt_add" class="btn btn-primary">AGREGAR</button>
         </div>
 <!-- Tabla de los articulos agregados para la compra -->
     <div class="col-md-12">
         <table id="detalles" class="table table-striped table-bordered table-hover table-condensed" style="margin-top: 10px">
             <thead style="background-color: #A9D0F5;">
-                <th>Opciones</th>
-                <th>Artículo</th>
-                <th>Cantidad</th>
+                <th>OPCIONES</th>
+                <th>ARTICULO</th>
+                <th>CANTIDAD</th>
                 <th>IVA</th>
-                <th>Precio PRODUCTO</th>
-                <th>Subtotal</th>
+                <th>PRECIO PRODUCTO</th>
+                <th>SUBTOTAL</th>
             </thead>
             <tfoot>
                 <th>
@@ -88,7 +88,7 @@
                         class="form-control" id="comp_totalIva"
                         value="{{ old('comp_totalIva') }}" placeholder="0" readonly>
                 </th>
-                <th>Total</th>
+                <th>TOTAL</th>
                 <th>
                     <input  type="number" name="comp_totalfactura" 
                             class="form-control" id="comp_totalfactura"
@@ -102,7 +102,7 @@
 <!-- Submit Field -->
 <div class="col-md-12" id="guardar">
         <div class="form-group">
-            <button class="btn btn-primary" type="submit">Guardar</button>
+            <button class="btn btn-primary" type="submit">GUARDAR</button>
         </div>
     </div>
 @push('scripts')

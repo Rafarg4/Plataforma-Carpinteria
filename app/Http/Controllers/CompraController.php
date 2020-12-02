@@ -101,6 +101,7 @@ class CompraController extends AppBaseController
 
                 $cont = $cont + 1;
             }
+             Flash::success('COMPRA AGREGADA CORRECTAMENTE.');
 
         return redirect(route('compras.index'));
 
@@ -138,7 +139,7 @@ class CompraController extends AppBaseController
         $users = User::pluck('name','id');
 
         if (empty($compra)) {
-            Flash::error('Compra not found');
+            Flash::error('COMPRA NO ENCONTRADA');
 
             return redirect(route('compras.index'));
         }
@@ -166,7 +167,7 @@ class CompraController extends AppBaseController
 
         $compra = $this->compraRepository->update($request->all(), $id);
 
-        Flash::success('Compra updated successfully.');
+        Flash::success('COMPRA ACTUALIZADA CORRECTAMENTE.');
 
         return redirect(route('compras.index'));
     }
@@ -185,14 +186,14 @@ class CompraController extends AppBaseController
         $compra = $this->compraRepository->find($id);
 
         if (empty($compra)) {
-            Flash::error('Compra not found');
+            Flash::error('COMPRA NO ENCOTRADA');
 
             return redirect(route('compras.index'));
         }
 
         $this->compraRepository->delete($id);
 
-        Flash::success('Compra deleted successfully.');
+        Flash::success('COMPRA ELIMINADA CORRECTAMENTE.');
 
         return redirect(route('compras.index'));
     }

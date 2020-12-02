@@ -42,13 +42,13 @@
 <table style="width:100%">
   <tr>
     <td>FECHA DE EMISION {{ $compra->comp_fecha }} </td>
-    <td style="text-align: right;">CONDICION DE compra: {{ $compra->comp_tipo }} </td>
+    <td style="text-align: right;">CONDICION DE COMPRA: {{ $compra->comp_tipo }} </td>
     
   </tr>
 
   <tr>
     <td>RUC: {{ $compra->proveedor->ruc_proveedor }}</td>
-    <td style="text-align: right;">NOTA DE REMISION Nº........</td>
+    <td style="text-align: right;">NOTA DE REMISION Nº9387534</td>
   </tr>
 
   <tr>
@@ -105,9 +105,9 @@
    <tr>
     <td colspan="6" >
       <p>LIQUIDACION DEL IVA: {{($compra->comp_totalfactura/5)}} GS
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(5%): {{($compra->comp_totalfactura/5)}} GS  
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(10%): {{($compra->comp_totalfactura/10)}} GS 
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TOTAL IVA: {{($compra->comp_totalfactura/10)}} GS 
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(5%): {{($compra->comp_totalfactura/10)}} GS  
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(10%): {{($compra->comp_totalfactura/5)}} GS 
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TOTAL IVA: {{($compra->comp_totalfactura/5)}} GS 
       </p>
     </td>
     
