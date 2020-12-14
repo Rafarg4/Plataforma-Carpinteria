@@ -12,33 +12,33 @@
         <div class="box box-primary">
             <div class="box-body">
                 <div class="row">
-                {!! Form::model($cliente, ['route' => ['clientes.update', $cliente->id], 'method' => 'patch']) !!}
+                    {!! Form::open(['route' => 'clientes.store']) !!}
 
                     <div class="col-md-4">
 
                         <div class="form-group">
                             <label for="clientes_nombre">Nombre del Cliente</label>
-                            <input type="txt" name="clientes_nombre" class="form-control "value="{{ $cliente->clientes_nombre }}"required>
+                            <input type="txt" name="clientes_nombre" class="form-control" value="{{ old('clientes_nombre') }}"required>
                         </div>
 
                         <div class="form-group">
                             <label for="clientes_ruc">Ruc del Cliente</label>
-                            <input type="txt" name="clientes_ruc" class="form-control" value="{{ $cliente->clientes_ruc }}"required>
+                            <input type="txt" name="clientes_ruc" class="form-control" value="{{ old('clientes_ruc') }}"required>
                         </div>
 
                         <div class="form-group">
                             <label for="clientes_telefono">Teléfono del Cliente</label>
-                            <input type="txt" name="clientes_telefono" class="form-control" value="{{ $cliente->clientes_telefono }}"required>
+                            <input type="txt" name="clientes_telefono" class="form-control" value="{{ old('clientes_telefono') }}"required>
                         </div>
 
                         <div class="form-group">
                             <label for="clientes_direccion">Dirección del Cliente</label>
-                            <input type="txt" name="clientes_direccion" class="form-control" value="{{ $cliente->clientes_direccion }}"required>
+                            <input type="txt" name="clientes_direccion" class="form-control" value="{{ old('clientes_direccion') }}"required>
                         </div>
 
                         <div class="form-group">
                             <label for="clientes_email">Email del Cliente</label>
-                            <input type="txt" name="clientes_email" class="form-control" value="{{ $cliente->clientes_email }}"required>
+                            <input type="txt" name="clientes_email" class="form-control" value="{{ old('clientes_email') }}"required>
                         </div>
 
 		

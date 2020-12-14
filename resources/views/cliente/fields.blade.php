@@ -5,11 +5,8 @@
 	<div class="col-md-4">
         <div class="form-group">
 			<label for="cliente_id">Nombre</label>
-			<select name="cliente_id" class="form-control">
-				
-					<option value="{{ $cliente->id}}">{{$cliente->clientes_nombre}}</option>
-		
-			</select> 
+			<input type="text" class="form-control"  name="clientes_nombre" id="clientes_nombre" value="{{ old('clientes_nombre') }}" >
+
 		</div>
 		<div class="form-group">
             <label for="cliente_ruc">RUC</label>

@@ -10,6 +10,10 @@
 
 <li class="{{ Request::is('ventas*') ? 'active' : '' }}">
     <a href="{{ route('ventas.index') }}"><i class="fa fa-book"></i></i><span>Ventas</span></a>
+</li>
+<li class="{{ Request::is('clientes*') ? 'active' : '' }}">
+    <a href="{{ route('clientes.index') }}"><i class="fa fa-book"></i></i><span>Clientes</span></a>
+</li>
 <li class="{{ Request::is('depositos*') ? 'active' : '' }}">
     <a href="{{ route('depositos.index') }}"><i class="fa fa-clone"></i><span>DEPOSITO</span></a>
 </li>
