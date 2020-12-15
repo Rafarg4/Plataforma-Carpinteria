@@ -5,6 +5,7 @@ namespace App\Models;
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+
 /**
  * Class Produccion
  * @package App\Models
@@ -71,6 +72,7 @@ class Produccion extends Model
         public function user (){
                 return $this-> belongsTo('App\User');
             }
+
 
 
 }

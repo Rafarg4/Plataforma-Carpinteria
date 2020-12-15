@@ -1,20 +1,20 @@
 
 <div class="table-responsive">
-    <table class="table" id="produccions-table">
+    <table class="table" id="data-table">
         <thead>
             <tr>
-                <th>Pedido Id</th>
+                <th>Pedido Cliente</th>
         <th>Fecha Inicio</th>
         <th>Fecha Culminacion</th>
         <th>Responsable</th>
         <th>Estado</th>
-                <th>Action</th>
+                <th>Accion</th>
             </tr>
         </thead>
         <tbody>
         @foreach($produccions as $produccion)
             <tr>
-            <td>{{ $produccion->pedido->id }}</td>
+            <td>{{ $produccion->pedido->cliente->cliente_nombre }}</td>
             <td>{{ $produccion->fecha_inicio }}</td>
             <td>{{ $produccion->fecha_culminacion }}</td>
             <td>{{ $produccion->user->name }}</td>
