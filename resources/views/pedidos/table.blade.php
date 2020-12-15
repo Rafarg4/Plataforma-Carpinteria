@@ -1,11 +1,11 @@
 <div class="table-responsive">
-    <table class="table" id="pedidos-table">
+    <table class="table" id="data-table">
         <thead>
             <tr>
                 <th>CLIENTE</th>
         <th>FECHA DE INICIO</th>
         <th>FECHA DE ENTREGA</th>
-                <th colspan="3">ACCIÓN</th>
+                <th>ACCIÓN</th>
             </tr>
         </thead>
         <tbody>

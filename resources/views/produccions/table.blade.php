@@ -1,6 +1,6 @@
 
 <div class="table-responsive">
-    <table class="table" id="produccions-table">
+    <table class="table" id="data-table">
         <thead>
             <tr>
                 <th>Pedido Id</th>

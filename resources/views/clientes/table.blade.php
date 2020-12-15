@@ -1,9 +1,9 @@
 <div class="table-responsive">
-    <table class="table" id="clientes-table">
+    <table class="table" id="data-table">
         <thead>
             <tr>
                 <th>Cliente Nombre</th>
-                <th colspan="3">Action</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
