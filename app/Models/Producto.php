@@ -28,7 +28,8 @@ class Producto extends Model
     public $fillable = [
         'nombre_producto',
         'descripcion_producto',
-        'categoria_id'
+        'categoria_id',
+        'precio'
     ];
 
     /**
@@ -40,7 +41,9 @@ class Producto extends Model
         'id' => 'integer',
         'nombre_producto' => 'string',
         'descripcion_producto' => 'string',
-        'categoria_id' => 'integer'
+        'categoria_id' => 'integer',
+        'precio' => 'double'
+
     ];
 
     /**
@@ -51,7 +54,8 @@ class Producto extends Model
     public static $rules = [
         'nombre_producto' => 'required',
         'descripcion_producto' => 'required',
-        'categoria_id' => 'required'
+        'categoria_id' => 'required',
+        'precio' => 'required'
     ];
 public function categoria (){
         return $this-> belongsTo('App\Models\Categoria');

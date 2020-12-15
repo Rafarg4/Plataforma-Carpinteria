@@ -18,6 +18,7 @@ class CreateProductosTable extends Migration
             $table->increments('id');
             $table->text('nombre_producto');
             $table->text('descripcion_producto');
+            $table->double('precio', 15, 2);
             $table->integer('categoria_id')->unsigned();
             $table->timestamps();
             $table->softDeletes();

@@ -15,7 +15,11 @@
     {!! Form::label('categoria_id', 'CATEGORÍA:') !!}
     {!! Form::select('categoria_id', $categorias, null, ['required', 'class' => 'form-control','placeholder'=>'Seleccione'])!!}
 </div>
-
+<!-- precio Producto Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('precio', '	PRECIO:') !!}
+    {!! Form::text('precio', null, ['class' => 'form-control']) !!}
+</div>
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
     {!! Form::submit('GUARDAR', ['class' => 'btn btn-primary']) !!}

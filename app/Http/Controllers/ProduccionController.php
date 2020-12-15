@@ -43,7 +43,7 @@ class ProduccionController extends AppBaseController
      */
     public function create()
     {
-      $pedidos = Pedido::pluck('cliente','id');
+      $pedidos = Pedido::pluck('cliente_id','id');
        return view('produccions.create',compact(
            'pedidos'));
     }

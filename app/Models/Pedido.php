@@ -26,7 +26,7 @@ class Pedido extends Model
 
 
     public $fillable = [
-        'cliente',
+        'cliente_id',
         'fecha_inicio',
         'fecha_entrega'
     ];
@@ -38,7 +38,7 @@ class Pedido extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'cliente' => 'string',
+        'cliente_id' => 'integer',
         'fecha_inicio' => 'text',
         'fecha_entrega' => 'text'
     ];
@@ -49,7 +49,7 @@ class Pedido extends Model
      * @var array
      */
     public static $rules = [
-        'cliente' => 'required',
+        'cliente_id' => 'required',
         'fecha_inicio' => 'required',
         'fecha_entrega' => 'required'
     ];
@@ -57,6 +57,8 @@ class Pedido extends Model
     public function produccion (){
         return $this-> hasMany('App\Models\Produccion');
     }
+    public function cliente(){
+ return $this->belongsTo('App\Models\Cliente');}
 
 
 }

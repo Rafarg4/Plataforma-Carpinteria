@@ -14,7 +14,7 @@
         <tbody>
         @foreach($produccions as $produccion)
             <tr>
-            <td>{{ $produccion->pedido->cliente }}</td>
+            <td>{{ $produccion->pedido->id }}</td>
             <td>{{ $produccion->fecha_inicio }}</td>
             <td>{{ $produccion->fecha_culminacion }}</td>
             <td>{{ $produccion->user->name }}</td>

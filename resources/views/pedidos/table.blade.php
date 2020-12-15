@@ -11,7 +11,7 @@
         <tbody>
         @foreach($pedidos as $pedido)
             <tr>
-                <td>{{ $pedido->cliente }}</td>
+                <td>{{ $pedido->cliente->cliente_nombre }}</td>
             <td>{{ $pedido->fecha_inicio }}</td>
             <td>{{ $pedido->fecha_entrega }}</td>
                 <td>

@@ -20,27 +20,24 @@ Route::get('/', function () {
 Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->middleware('verified');
-
-
-
-
 Route::resource('users', 'UserController')->middleware('auth');
-
+Route::resource('venta', 'VentaController')->names('ventas')->middleware('auth');
+Route::get('/venta/pdf/{id}', 'VentaController@pdf')->name('pdf');
+Route::get('/compras/pdf/{id}', 'CompraController@pdf')->name('pdf');
+Route::resource('cliente', 'ClienteController')->names('clientes')->middleware('auth');
 
 Route::resource('transferencias', 'TransferenciaController')->middleware('auth');
-
 
 Route::resource('depositos', 'DepositoController')->middleware('auth');
 
 Route::resource('stocks', 'StockController')->middleware('auth');
-
-
 
 Route::resource('categorias', 'CategoriaController');
 
 Route::resource('proveedors', 'ProveedorController');
 
 Route::resource('productos', 'ProductoController');
+
 
 Route::resource('detalles', 'DetalleController');
 
@@ -50,3 +47,12 @@ Route::resource('detalles', 'DetalleController');
 Route::resource('pedidos', 'PedidoController');
 
 Route::resource('produccions', 'ProduccionController');
+
+Route::resource('compras', 'CompraController');
+
+
+
+
+Route::resource('pedidoDetalles', 'PedidoDetalleController');
+
+Route::resource('clientes', 'ClienteController');

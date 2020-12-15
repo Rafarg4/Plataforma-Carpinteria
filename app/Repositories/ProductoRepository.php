@@ -19,7 +19,8 @@ class ProductoRepository extends BaseRepository
     protected $fieldSearchable = [
         'nombre_producto',
         'descripcion_producto',
-        'categoria_id'
+        'categoria_id',
+        'precio'
     ];
 
     /**

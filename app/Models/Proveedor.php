@@ -66,5 +66,8 @@ class Proveedor extends Model
         'descripcion_proveedor' => 'required'
     ];
 
-    
+    public function compra (){
+        return $this-> hasMany('App\Models\Compra');
+    }
+
 }

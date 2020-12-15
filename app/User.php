@@ -1,12 +1,15 @@
 <?php
 
 namespace App;
+use App\venta;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Foundation\Auth\user as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Model;
 
-class User extends Authenticatable
+
+class user extends Authenticatable
 {
     use Notifiable;
 
@@ -44,4 +47,17 @@ class User extends Authenticatable
          public function produccion (){
                  return $this-> HasMany('App\Models\Produccion');
              }
+
+         protected $table ='users';
+         public $primaryKey = 'id';
+      
+          public function ventas(){
+             return $this->hasMany('App\venta');
+         }
+           public function compra(){
+             return $this->hasMany('App\Models\Compra');
+         }
+    
+
+        
 }

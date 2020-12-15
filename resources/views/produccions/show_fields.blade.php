@@ -1,7 +1,7 @@
 <!-- Pedido Id Field -->
 <div class="form-group">
     {!! Form::label('pedido_id', 'Pedido Id:') !!}
-    <p>{{ $produccion->pedido->cliente }}</p>
+    <p>{{ $produccion->pedido->id }}</p>
 </div>
 
 <!-- Fecha Inicio Field -->

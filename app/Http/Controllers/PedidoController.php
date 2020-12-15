@@ -5,7 +5,12 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreatePedidoRequest;
 use App\Http\Requests\UpdatePedidoRequest;
 use App\Repositories\PedidoRepository;
+use App\Repositories\ClienteRepository;
 use App\Http\Controllers\AppBaseController;
+use App\Models\Cliente;
+use App\Models\Pedido;
+use App\Models\PedidoDetalle;
+use App\articulo;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
@@ -41,8 +46,12 @@ class PedidoController extends AppBaseController
      * @return Response
      */
     public function create()
-    {
-        return view('pedidos.create');
+    {   
+
+        $clientes = Cliente::pluck('cliente_nombre','id');
+        $productos = articulo::all();
+        return view('pedidos.create',compact(
+            'clientes','productos'));
     }
 
     /**
@@ -52,14 +61,46 @@ class PedidoController extends AppBaseController
      *
      * @return Response
      */
+
+
+
+       
+
+       
+
     public function store(CreatePedidoRequest $request)
     {
-        $input = $request->all();
+        
+         $pedidos = new Pedido();
 
-        $pedido = $this->pedidoRepository->create($input);
+         $pedidos->cliente_id = request( 'cliente_id'); //envia
+        $pedidos->fecha_inicio = request( 'fecha_inicio'); //envia
+        $pedidos->fecha_entrega = request( 'fecha_entrega'); //envia
+       
 
-        Flash::success('Pedido guardado correctamente.');
+        $pedidos->save();
 
+
+        $articulo_id = $request->get('articulo_id'); //array()
+        $cdet_cantidad = $request->get('cdet_cantidad');
+
+
+            //Recorre los detalles de compras
+        $cont = 0;
+        while($cont < count($articulo_id))
+            {
+                $detalle = new PedidoDetalle;
+                //$venta->id del venta que recien se guardo 
+                $detalle->pedido_id = $pedidos->id;
+                //id_articulo de la posición cero
+                $detalle->articulo_id = $articulo_id[$cont]; //envia
+                $detalle->cdet_cantidad = $cdet_cantidad[$cont]; //envia
+                $detalle->save();
+
+                $cont = $cont + 1;
+            }
+             Flash::success('PRODUCCION AGREGADO CORRECTAMENTE.');
+    
         return redirect(route('pedidos.index'));
     }
 
@@ -71,18 +112,14 @@ class PedidoController extends AppBaseController
      * @return Response
      */
     public function show($id)
-    {
-        $pedido = $this->pedidoRepository->find($id);
+    
+     {
 
-        if (empty($pedido)) {
-            Flash::error('Pedido no encontrado.');
-
-            return redirect(route('pedidos.index'));
-        }
-
-        return view('pedidos.show')->with('pedido', $pedido);
+      return view('pedidos.show', 
+        ['pedido' => Pedido::findOrFail($id)], 
+        ['detalle' => PedidoDetalle::all()]);
+     
     }
-
     /**
      * Show the form for editing the specified Pedido.
      *

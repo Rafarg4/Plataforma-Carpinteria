@@ -1,7 +1,7 @@
 <!-- Cliente Field -->
 <div class="form-group">
     {!! Form::label('cliente', 'Cliente:') !!}
-    <p>{{ $pedido->cliente }}</p>
+    <p>{{ $pedido->cliente->cliente_nombre }}</p>
 </div>
 
 <!-- Fecha Inicio Field -->
@@ -28,3 +28,26 @@
     <p>{{ $pedido->updated_at }}</p>
 </div>
 
+<div class="col-md-12">
+                            <table id="detalles" class="table table-striped table-bordered table-hover table-condensed" style="margin-top: 10px">
+                                <thead style="background-color: #A9D0F5">
+                                    <th>CANTIDAD</th>
+                                    <th>ARTICULOS</th>
+                                    
+                                </thead>                                
+                                <tbody>
+                                @foreach($detalle as $det)
+                                    @if ($det->pedido_id == $pedido->id)
+                                    <tr>
+                                        <td>
+                                            <p>{{  $det->cdet_cantidad }}</p>  <!-- trae la cantidad del articulo-->
+                                        </td>
+                                        <td>
+                                             <p>{{ $det->articulo->articulos_descripcion}}</p> <!-- trae el nombre del articulo-->
+                                        </td>
+                                    </tr>
+                                    @endif
+                                @endforeach
+                                </tbody>
+                        </table>
+                    </div>
