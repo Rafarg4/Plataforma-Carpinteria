@@ -13,12 +13,13 @@ class CreateVentasTable extends Migration
      */
     public function up()
     {
-        
+
         Schema::create('ventas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('cliente_id')->constrained();
-            $table->foreignId('user_id')->constrained();
-            
+            $table->integer('cliente_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
+            $table->foreign('cliente_id')->references('id')->on('clientes');
+            $table->foreign('user_id')->references('id')->on('users');
 
 
             $table->date('vent_fecha');

@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Flash;
 use Response;
 use App\Models\Categoria;
+use App\articulo;
 
 class ProductoController extends AppBaseController
 {
@@ -60,6 +61,8 @@ class ProductoController extends AppBaseController
         $input = $request->all();
 
         $producto = $this->productoRepository->create($input);
+        $articulo = articulo::create(['articulos_descripcion' => $request->nombre_producto,
+        'articulos_precio' => $request->precio]);
 
         Flash::success('Producto guardado correctamente.');
 

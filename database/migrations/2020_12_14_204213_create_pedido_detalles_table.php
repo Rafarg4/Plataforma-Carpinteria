@@ -16,7 +16,7 @@ class CreatePedidoDetallesTable extends Migration
     {
         Schema::create('pedido_detalles', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('articulo_id')->unsigned();
+            $table->bigInteger('articulo_id')->unsigned();
             $table->integer('pedido_id')->unsigned();
             $table->string('cdet_cantidad');
             $table->timestamps();
