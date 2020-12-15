@@ -105,8 +105,8 @@
             <button class="btn btn-primary" type="submit">GUARDAR</button>
         </div>
     </div>
-@push('scripts')
-<script>
+
+<script type="text/javascript">
 
     $(document).ready(function(){
         $("#bt_add").click(function(){
@@ -213,4 +213,3 @@
     );
     });
 </script>
-@endpush

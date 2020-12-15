@@ -33,7 +33,7 @@
       Válido hasta 28 de Diciembre 2021 <br>
       R.U.C. 194854 - 8</p>
       <strong > FACTURA </strong> <br>
-      <strong > Nº {{ $compra->vent_numero }}</strong>
+      <strong > Nº {{ $compra->comp_numero }}</strong>
     </td>
   </tr>      
 </table> 
@@ -78,8 +78,8 @@
    <tr>
     <td>{{ $det->cdet_cantidad }}</td>
     <td>{{ $det->articulo->articulos_descripcion }}</td>
-    <td></td>
-    <td></td>
+    <td>4500</td>
+    <td> ---</td>
     <td>{{($compra->comp_totalfactura/10)}} GS</td>
     <td>{{($compra->comp_totalfactura/5)}} GS </td>
    </tr>
