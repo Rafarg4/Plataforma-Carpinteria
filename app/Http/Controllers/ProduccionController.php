@@ -96,7 +96,7 @@ class ProduccionController extends AppBaseController
     public function edit($id)
     {
         $produccion = $this->produccionRepository->find($id);
-        $pedidos = Pedido::pluck('cliente','id');
+        $pedidos = Pedido::pluck('cliente_id','id');
 
         if (empty($produccion)) {
             Flash::error('Produccion not found');
